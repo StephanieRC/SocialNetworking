@@ -12,9 +12,27 @@ import Firebase
 import FirebaseStorage
 import TWMessageBarManager
 
+//TODO:CREATE USERMODEL
+
 class FirebaseHandler {
     var ref: DatabaseReference! = Database.database().reference().child("USERS")
     var storageref: StorageReference! = Storage.storage().reference()
+    
+    static let shared = FirebaseHandler()
+
+    private init(){
+
+    }
+    
+    func updateUserInfo(){
+        if let user = Auth.auth().currentUser
+        {
+            self.ref.child(user.uid).updateChildValues(["name": "imUpdating"]){
+                (err, reference) in
+                print(err)
+            }
+        }
+    }
     
     func uploadImg(){
         let image = UIImage(named: "bison3")
@@ -79,23 +97,25 @@ class FirebaseHandler {
         }
     }
     
-    func signUp(email: String, pwd: String){
+    func signUp(email: String, pwd: String, name: String, birthdate: String, address: String){
         Auth.auth().createUser(withEmail: email, password: pwd)
         {
             (result, err) in
             if err == nil{
                 guard let user = result?.user else {return}
-                self.ref.child(user.uid).setValue(["Full name": "fdas", "EmailID":"fas@fasd.df"],
+                self.ref.child(user.uid).setValue(["Name": name, "birthdate": birthdate, "address": address],
                                                   withCompletionBlock:{
                                                     (err, self) in
                                                     if let err = err {
                                                         print("Data could not be saved: \(err).")
                                                     } else {
+                                                        
                                                         print("Data saved successfully!")
                                                     }
                                                     
                 })
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "Sucessfully created new user", type: .success)
+                self.uploadImg()
             }else
             {
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Error", description: err?.localizedDescription, type: .error)
@@ -112,5 +132,18 @@ class FirebaseHandler {
             }
             
         }
+    }
+    
+    func fetchUsers()->[String]{
+        var keys : [String] = []
+        ref?.observeSingleEvent(of: .value){
+            (snapshot) in
+            if let user = snapshot.value as? [String: Any]{
+                for u in user{
+                    keys.append(u.key)
+                }
+            }
+        }
+        return keys
     }
 }

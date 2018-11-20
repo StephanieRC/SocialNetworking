@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ForgotPasswordViewController: UIViewController {
+class ForgotPasswordViewController: MRKBaseViewController {
 
     @IBOutlet weak var emailField: UITextField!
     
@@ -17,6 +17,7 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @IBAction func forgotPwdBtn(_ sender: UIButton) {
-        FirebaseHandler().resetPwd(email: emailField.text!)
+        FirebaseHandler.shared.resetPwd(email: emailField.text!)
+        navigationController?.popViewController(animated: true)
     }
 }

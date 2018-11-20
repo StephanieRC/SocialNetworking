@@ -15,7 +15,7 @@ class MRKBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationWithColor(.white)
-        let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        let backButton = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         self.navigationItem.backBarButtonItem = backButton;
         
     
@@ -23,7 +23,7 @@ class MRKBaseViewController: UIViewController {
     
    func setupNavigationWithColor(_ color: UIColor) {
         let font = UIFont.systemFont(ofSize: 25)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : color, NSAttributedStringKey.font : font as Any]
+    self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : color, NSAttributedString.Key.font : font as Any]
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.tintColor = UIColor.white

@@ -8,23 +8,28 @@
 
 import UIKit
 
-class CreateAccountViewController: UIViewController {
-
+class CreateAccountViewController: MRKBaseViewController {
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var pwdField: UITextField!
+    @IBOutlet weak var confirmPassword: UITextField!
+    @IBOutlet weak var birthdateField: UITextField!
+    @IBOutlet weak var addressField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func selectImg(_ sender: UIButton) {
     }
-    */
-
+    
+    @IBAction func signUpBtn(_ sender: UIButton) {
+        if !(nameField.text?.isEmpty)! && !(emailField.text?.isEmpty)! && !(pwdField.text?.isEmpty)! && !(confirmPassword.text?.isEmpty)! && !(birthdateField.text?.isEmpty)! && !(addressField.text?.isEmpty)!{
+            if pwdField.text == confirmPassword.text{
+                FirebaseHandler.shared.signUp(email: emailField.text!, pwd: pwdField.text!, name: nameField.text!, birthdate: birthdateField.text!, address: addressField.text!)
+                navigationController?.popViewController(animated: true)
+            }
+        }
+    }
 }

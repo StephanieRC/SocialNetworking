@@ -13,11 +13,13 @@
 		9723B938219F51FC00DAD4BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9723B937219F51FC00DAD4BE /* Assets.xcassets */; };
 		9723B93B219F51FC00DAD4BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9723B939219F51FC00DAD4BE /* LaunchScreen.storyboard */; };
 		9723B943219F544000DAD4BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9723B942219F544000DAD4BE /* GoogleService-Info.plist */; };
-		97952C7021A2FCD100D3ACA7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97952C6F21A2FCD100D3ACA7 /* WelcomeViewController.swift */; };
 		97952C9B21A3B03500D3ACA7 /* FirebaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97952C9A21A3B03500D3ACA7 /* FirebaseHandler.swift */; };
 		97952C9D21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97952C9C21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift */; };
 		97952C9F21A4380E00D3ACA7 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97952C9E21A4380E00D3ACA7 /* CreateAccountViewController.swift */; };
 		97952CC221A443F500D3ACA7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97952CC121A443F500D3ACA7 /* ProfileViewController.swift */; };
+		97952CC421A470E700D3ACA7 /* MRKBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97952CC321A470E700D3ACA7 /* MRKBaseViewController.swift */; };
+		97D0BF0C21A4865B00592A70 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0BF0B21A4865B00592A70 /* UsersViewController.swift */; };
+		97D0BF0E21A4934800592A70 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0BF0D21A4934800592A70 /* UserModel.swift */; };
 		F20B166AAD782B1CC81B7042 /* Pods_SocialNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BFF0396BEA3633D6F8F766 /* Pods_SocialNetworking.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,11 +34,13 @@
 		9723B93A219F51FC00DAD4BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9723B93C219F51FC00DAD4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9723B942219F544000DAD4BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		97952C6F21A2FCD100D3ACA7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		97952C9A21A3B03500D3ACA7 /* FirebaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHandler.swift; sourceTree = "<group>"; };
 		97952C9C21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		97952C9E21A4380E00D3ACA7 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		97952CC121A443F500D3ACA7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		97952CC321A470E700D3ACA7 /* MRKBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRKBaseViewController.swift; sourceTree = "<group>"; };
+		97D0BF0B21A4865B00592A70 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		97D0BF0D21A4934800592A70 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		A4D37ACF483ED0F05D3FCC0F /* Pods-SocialNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworking/Pods-SocialNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,12 +96,14 @@
 			children = (
 				9723B92D219F51F900DAD4BE /* AppDelegate.swift */,
 				9723B92F219F51F900DAD4BE /* ViewController.swift */,
-				97952C6F21A2FCD100D3ACA7 /* WelcomeViewController.swift */,
 				97952C9C21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift */,
 				97952C9A21A3B03500D3ACA7 /* FirebaseHandler.swift */,
 				9723B931219F51F900DAD4BE /* Main.storyboard */,
+				97D0BF0D21A4934800592A70 /* UserModel.swift */,
 				97952C9E21A4380E00D3ACA7 /* CreateAccountViewController.swift */,
 				97952CC121A443F500D3ACA7 /* ProfileViewController.swift */,
+				97D0BF0B21A4865B00592A70 /* UsersViewController.swift */,
+				97952CC321A470E700D3ACA7 /* MRKBaseViewController.swift */,
 				9723B937219F51FC00DAD4BE /* Assets.xcassets */,
 				9723B939219F51FC00DAD4BE /* LaunchScreen.storyboard */,
 				9723B93C219F51FC00DAD4BE /* Info.plist */,
@@ -236,11 +242,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				97952C9F21A4380E00D3ACA7 /* CreateAccountViewController.swift in Sources */,
-				97952C7021A2FCD100D3ACA7 /* WelcomeViewController.swift in Sources */,
 				97952C9D21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift in Sources */,
 				9723B930219F51F900DAD4BE /* ViewController.swift in Sources */,
 				97952CC221A443F500D3ACA7 /* ProfileViewController.swift in Sources */,
 				9723B92E219F51F900DAD4BE /* AppDelegate.swift in Sources */,
+				97D0BF0C21A4865B00592A70 /* UsersViewController.swift in Sources */,
+				97952CC421A470E700D3ACA7 /* MRKBaseViewController.swift in Sources */,
+				97D0BF0E21A4934800592A70 /* UserModel.swift in Sources */,
 				97952C9B21A3B03500D3ACA7 /* FirebaseHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

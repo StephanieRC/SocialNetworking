@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-class ViewController: UIViewController {
+class ViewController: MRKBaseViewController {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var pwdField: UITextField!
@@ -21,16 +21,23 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Login"
         if let user = Auth.auth().currentUser{
             //perform segue to tab view controller
+            performSegue(withIdentifier: "loginSegue", sender: true)
         }else{
         }
+        FirebaseHandler.shared.fetchUsers()
         
     }
 
+    @IBAction func unwindToContainerVC(segue: UIStoryboardSegue) {
+        
+    }
     
     @IBAction func loginBtn(_ sender: UIButton) {
-        FirebaseHandler().signIn(email: emailField.text!, passwd: pwdField.text!)
+        FirebaseHandler.shared.signIn(email: emailField.text!, passwd: pwdField.text!)
+        performSegue(withIdentifier: "loginSegue", sender: true)
     }
     
 }
