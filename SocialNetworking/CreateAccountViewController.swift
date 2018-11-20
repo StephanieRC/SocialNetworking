@@ -7,29 +7,30 @@
 //
 
 import UIKit
+import 
 
-class CreateAccountViewController: MRKBaseViewController {
-    @IBOutlet weak var imgView: UIImageView!
-    @IBOutlet weak var nameField: UITextField!
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var pwdField: UITextField!
-    @IBOutlet weak var confirmPassword: UITextField!
-    @IBOutlet weak var birthdateField: UITextField!
-    @IBOutlet weak var addressField: UITextField!
+class CreateAccountViewController: MRKBaseViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tblView: UITableView!
+    let textFieldArr = ["Display Name", "Email", "Password", "Phone Number", "Birthdate", "Language", "Address", "City", "State", "Country", "Zipcode"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
     }
     
     @IBAction func selectImg(_ sender: UIButton) {
     }
     
     @IBAction func signUpBtn(_ sender: UIButton) {
-        if !(nameField.text?.isEmpty)! && !(emailField.text?.isEmpty)! && !(pwdField.text?.isEmpty)! && !(confirmPassword.text?.isEmpty)! && !(birthdateField.text?.isEmpty)! && !(addressField.text?.isEmpty)!{
-            if pwdField.text == confirmPassword.text{
-                FirebaseHandler.shared.signUp(email: emailField.text!, pwd: pwdField.text!, name: nameField.text!, birthdate: birthdateField.text!, address: addressField.text!)
-                navigationController?.popViewController(animated: true)
-            }
-        }
+        //FirebaseHandler.shared.signUp()
+        //navigationController?.popViewController(animated: true)
     }
 }

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D4498D8B64BF963824FD81229CC0B7CF"
-               BlueprintName = "TWMessageBarManager"
+               BlueprintIdentifier = "EB04600168C746CA765C25AF5F4DA0B7"
+               BlueprintName = "DatePickerCell"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "TWMessageBarManager.framework">
+               BuildableName = "DatePickerCell.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
