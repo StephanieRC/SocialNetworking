@@ -12,6 +12,7 @@ import Firebase
 import FirebaseStorage
 import TWMessageBarManager
 
+typealias completionHandler = ([String]?) ->()
 //TODO:CREATE USERMODEL
 
 class FirebaseHandler {
@@ -134,16 +135,19 @@ class FirebaseHandler {
         }
     }
     
-    func fetchUsers()->[String]{
+    //closures
+    func fetchUsers(completion: @escaping completionHandler){
         var keys : [String] = []
-        ref?.observeSingleEvent(of: .value){
+            ref?.observeSingleEvent(of: .value){
             (snapshot) in
             if let user = snapshot.value as? [String: Any]{
                 for u in user{
                     keys.append(u.key)
                 }
-            }
+                completion(keys)
+            }else{
+                completion(nil)
+                }
         }
-        return keys
     }
 }

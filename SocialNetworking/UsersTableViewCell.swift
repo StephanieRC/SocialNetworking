@@ -10,6 +10,9 @@ import UIKit
 
 class UsersTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var profileImgView: UIImageView!
+    @IBOutlet weak var nameLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +23,7 @@ class UsersTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    @IBAction func addFriendButton(_ sender: UIButton) {
+    }
+    
 }

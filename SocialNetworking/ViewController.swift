@@ -27,7 +27,6 @@ class ViewController: MRKBaseViewController {
             performSegue(withIdentifier: "loginSegue", sender: true)
         }else{
         }
-        FirebaseHandler.shared.fetchUsers()
         
     }
 

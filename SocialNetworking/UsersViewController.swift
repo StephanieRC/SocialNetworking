@@ -9,9 +9,19 @@
 import UIKit
 
 class UsersViewController: UIViewController, UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource {
-
+    
+    var userKeys: [String] = []
+    
+    @IBOutlet weak var tblView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        FirebaseHandler.shared.fetchUsers(){
+            (userKeyArr) in
+            DispatchQueue.main.async {
+                self.userKeys = userKeyArr ?? []
+                self.tblView.reloadData()
+            }
+        }
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -19,11 +29,13 @@ class UsersViewController: UIViewController, UISearchResultsUpdating, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return userKeys.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "usersAllCell") as! UsersTableViewCell
+        cell.nameLbl.text = userKeys[indexPath.row]
+        return cell
     }
     
     

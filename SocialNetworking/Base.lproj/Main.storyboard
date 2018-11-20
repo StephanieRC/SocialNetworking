@@ -147,7 +147,7 @@
             </objects>
             <point key="canvasLocation" x="2612" y="1072"/>
         </scene>
-        <!--Item-->
+        <!--Chat-->
         <scene sceneID="b4C-Je-Gef">
             <objects>
                 <viewController id="yKU-3K-EGO" sceneMemberID="viewController">
@@ -157,7 +157,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Sl1-Zs-7nm"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="eaR-U9-5zP"/>
+                    <tabBarItem key="tabBarItem" title="Chat" id="eaR-U9-5zP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1X-H7-oNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -308,7 +308,7 @@
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="81" id="H2I-fO-wCp">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="usersAllCell" rowHeight="81" id="H2I-fO-wCp" customClass="UsersTableViewCell" customModule="SocialNetworking" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H2I-fO-wCp" id="qyr-dR-vJN">
@@ -334,6 +334,9 @@
                                                         <constraint firstAttribute="width" constant="28" id="k7e-j5-q0f"/>
                                                         <constraint firstAttribute="height" constant="22" id="wGC-6i-CfF"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="addFriendButton:" destination="H2I-fO-wCp" eventType="touchUpInside" id="1cs-wW-3Wu"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -347,6 +350,10 @@
                                                 <constraint firstItem="neC-Nc-Xoa" firstAttribute="leading" secondItem="gcr-Kh-MWV" secondAttribute="trailing" constant="15" id="xLK-Ku-2LA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLbl" destination="gcr-Kh-MWV" id="3rh-bm-cix"/>
+                                            <outlet property="profileImgView" destination="F8c-4M-t5e" id="b1x-Bc-8e7"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -365,6 +372,9 @@
                         <viewLayoutGuide key="safeArea" id="Axw-Sx-Onc"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Users" id="XqO-yg-Fdi"/>
+                    <connections>
+                        <outlet property="tblView" destination="bXo-jR-nmF" id="v9c-6N-5LD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Qo-w0-TKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -381,8 +391,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="tQo-gZ-t6E" kind="relationship" relationship="viewControllers" id="VER-do-PHI"/>
-                        <segue destination="yKU-3K-EGO" kind="relationship" relationship="viewControllers" id="XcW-zv-gJD"/>
                         <segue destination="TGi-4z-L47" kind="relationship" relationship="viewControllers" id="9pw-GN-gY5"/>
+                        <segue destination="yKU-3K-EGO" kind="relationship" relationship="viewControllers" id="XcW-zv-gJD"/>
                         <segue destination="Vbd-cq-utq" kind="relationship" relationship="viewControllers" id="2Pc-1E-olZ"/>
                         <segue destination="uVT-Gf-sqz" kind="relationship" relationship="viewControllers" id="Uiw-jr-ON5"/>
                     </connections>
@@ -391,7 +401,7 @@
             </objects>
             <point key="canvasLocation" x="2612" y="140.77961019490255"/>
         </scene>
-        <!--Item-->
+        <!--Friend-->
         <scene sceneID="iKe-GR-Tb2">
             <objects>
                 <viewController id="TGi-4z-L47" sceneMemberID="viewController">
@@ -401,7 +411,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rOd-b8-lH2"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="5J1-0t-CGg"/>
+                    <tabBarItem key="tabBarItem" title="Friend" id="5J1-0t-CGg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lc7-cw-njd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -20,6 +20,7 @@
 		97952CC421A470E700D3ACA7 /* MRKBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97952CC321A470E700D3ACA7 /* MRKBaseViewController.swift */; };
 		97D0BF0C21A4865B00592A70 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0BF0B21A4865B00592A70 /* UsersViewController.swift */; };
 		97D0BF0E21A4934800592A70 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0BF0D21A4934800592A70 /* UserModel.swift */; };
+		97D0BF1021A49D3E00592A70 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0BF0F21A49D3E00592A70 /* UsersTableViewCell.swift */; };
 		F20B166AAD782B1CC81B7042 /* Pods_SocialNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BFF0396BEA3633D6F8F766 /* Pods_SocialNetworking.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		97952CC321A470E700D3ACA7 /* MRKBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRKBaseViewController.swift; sourceTree = "<group>"; };
 		97D0BF0B21A4865B00592A70 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		97D0BF0D21A4934800592A70 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		97D0BF0F21A49D3E00592A70 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		A4D37ACF483ED0F05D3FCC0F /* Pods-SocialNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworking/Pods-SocialNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 				97952C9E21A4380E00D3ACA7 /* CreateAccountViewController.swift */,
 				97952CC121A443F500D3ACA7 /* ProfileViewController.swift */,
 				97D0BF0B21A4865B00592A70 /* UsersViewController.swift */,
+				97D0BF0F21A49D3E00592A70 /* UsersTableViewCell.swift */,
 				97952CC321A470E700D3ACA7 /* MRKBaseViewController.swift */,
 				9723B937219F51FC00DAD4BE /* Assets.xcassets */,
 				9723B939219F51FC00DAD4BE /* LaunchScreen.storyboard */,
@@ -245,6 +248,7 @@
 				97952C9D21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift in Sources */,
 				9723B930219F51F900DAD4BE /* ViewController.swift in Sources */,
 				97952CC221A443F500D3ACA7 /* ProfileViewController.swift in Sources */,
+				97D0BF1021A49D3E00592A70 /* UsersTableViewCell.swift in Sources */,
 				9723B92E219F51F900DAD4BE /* AppDelegate.swift in Sources */,
 				97D0BF0C21A4865B00592A70 /* UsersViewController.swift in Sources */,
 				97952CC421A470E700D3ACA7 /* MRKBaseViewController.swift in Sources */,
