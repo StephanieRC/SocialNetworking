@@ -84,27 +84,29 @@ class FirebaseHandler {
         }
     }
     
-    func signIn(email:String, passwd:String){
+    func signIn(email:String, passwd:String, completion: @escaping (Error?) ->()){
         Auth.auth().signIn(withEmail: email, password: passwd){
             (result, err) in
             if err == nil{
                 guard let user = result?.user else {return}
-                print(user.email)
+                //fetchdata
+                completion(nil)
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "Sucessfully logged in", type: .success)
             }else
             {
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Error", description: err?.localizedDescription, type: .error)
+                completion(err!)
             }
         }
     }
     
-    func signUp(email: String, pwd: String, name: String, birthdate: String, address: String){
+    func signUp(email: String, pwd: String, name: String, birthdate: String, address: String, displayName:String, phoneNum: String, language:String, city:String, state:String, zipcode:String, country:String, completion: @escaping (Error?) ->()){
         Auth.auth().createUser(withEmail: email, password: pwd)
         {
             (result, err) in
             if err == nil{
                 guard let user = result?.user else {return}
-                self.ref.child(user.uid).setValue(["Name": name, "birthdate": birthdate, "address": address],
+                self.ref.child(user.uid).setValue(["name": name, "displayName": displayName, "birthdate": birthdate, "address": address, "city": city, "state": state, "country": country, "zipcode": zipcode, "language": language, "phoneNum": phoneNum],
                                                   withCompletionBlock:{
                                                     (err, self) in
                                                     if let err = err {
@@ -117,21 +119,25 @@ class FirebaseHandler {
                 })
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "Sucessfully created new user", type: .success)
                 self.uploadImg()
+                completion(nil)
             }else
             {
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Error", description: err?.localizedDescription, type: .error)
+                completion(err)
             }
         }
     }
     
-    func fetchTheData(){
+    func fetchTheData(completion: @escaping (User?) ->()){
         let user = Auth.auth().currentUser
         ref.child(user?.uid ?? "1").observeSingleEvent(of: .value)
         {(Snapchat) in
             if let dict = Snapchat.value as? [String: Any]{
-                print(dict)
+                let usermodel: User = User.init(displayName: dict["displayName"] as! String, email: dict["email"] as! String, name:dict["name"] as! String, phoneNum: dict["phoneNum"] as! String, language: dict["language"] as! String, birthdate: dict["birthdate"] as! String, address: dict["address"] as! String, city: dict["city"] as! String, state: dict["state"] as! String, country: dict["country"] as! String, zipcode: dict["zipcode"] as! String)
+                completion(usermodel)
+            }else{
+                completion(nil)
             }
-            
         }
     }
     

@@ -10,6 +10,8 @@ import UIKit
 
 class ImageProfileTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imgView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +22,8 @@ class ImageProfileTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    @IBAction func selectPhotoBtn(_ sender: UIButton) {
+    }
+    
 }

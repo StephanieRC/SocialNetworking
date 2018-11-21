@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		971A75AC21A50FB10038D58B /* ImageProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971A75AB21A50FB10038D58B /* ImageProfileTableViewCell.swift */; };
+		971A75AE21A5261E0038D58B /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971A75AD21A5261E0038D58B /* TextFieldTableViewCell.swift */; };
 		9723B92E219F51F900DAD4BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723B92D219F51F900DAD4BE /* AppDelegate.swift */; };
 		9723B930219F51F900DAD4BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723B92F219F51F900DAD4BE /* ViewController.swift */; };
 		9723B933219F51F900DAD4BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9723B931219F51F900DAD4BE /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		36BFF0396BEA3633D6F8F766 /* Pods_SocialNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D219A18097B76349206453 /* Pods-SocialNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworking/Pods-SocialNetworking.release.xcconfig"; sourceTree = "<group>"; };
+		971A75AB21A50FB10038D58B /* ImageProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProfileTableViewCell.swift; sourceTree = "<group>"; };
+		971A75AD21A5261E0038D58B /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		9723B92A219F51F900DAD4BE /* SocialNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9723B92D219F51F900DAD4BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9723B92F219F51F900DAD4BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,9 +108,11 @@
 				97D0BF0D21A4934800592A70 /* UserModel.swift */,
 				97952C9E21A4380E00D3ACA7 /* CreateAccountViewController.swift */,
 				97952CC121A443F500D3ACA7 /* ProfileViewController.swift */,
+				971A75AD21A5261E0038D58B /* TextFieldTableViewCell.swift */,
 				97D0BF0B21A4865B00592A70 /* UsersViewController.swift */,
 				97D0BF0F21A49D3E00592A70 /* UsersTableViewCell.swift */,
 				97952CC321A470E700D3ACA7 /* MRKBaseViewController.swift */,
+				971A75AB21A50FB10038D58B /* ImageProfileTableViewCell.swift */,
 				9723B937219F51FC00DAD4BE /* Assets.xcassets */,
 				9723B939219F51FC00DAD4BE /* LaunchScreen.storyboard */,
 				9723B93C219F51FC00DAD4BE /* Info.plist */,
@@ -216,7 +222,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SocialNetworking/Pods-SocialNetworking-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DatePickerCell/DatePickerCell.framework",
+				"${BUILT_PRODUCTS_DIR}/DatePicker/DatePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/Extended/Extended.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/TWMessageBarManager/TWMessageBarManager.framework",
@@ -227,7 +234,8 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Extended.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TWMessageBarManager.framework",
@@ -246,8 +254,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				971A75AC21A50FB10038D58B /* ImageProfileTableViewCell.swift in Sources */,
 				97952C9F21A4380E00D3ACA7 /* CreateAccountViewController.swift in Sources */,
 				97952C9D21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift in Sources */,
+				971A75AE21A5261E0038D58B /* TextFieldTableViewCell.swift in Sources */,
 				9723B930219F51F900DAD4BE /* ViewController.swift in Sources */,
 				97952CC221A443F500D3ACA7 /* ProfileViewController.swift in Sources */,
 				97D0BF1021A49D3E00592A70 /* UsersTableViewCell.swift in Sources */,
@@ -332,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -387,7 +397,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -405,7 +415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3WY653J29;
 				INFOPLIST_FILE = SocialNetworking/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -425,7 +435,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3WY653J29;
 				INFOPLIST_FILE = SocialNetworking/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

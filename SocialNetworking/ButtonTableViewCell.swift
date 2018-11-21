@@ -17,8 +17,10 @@ class ButtonTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-
+    
+    
+    @IBAction func signUpBtn(_ sender: UIButton) {
+        FirebaseHandler.shared.signUp(email: <#T##String#>, pwd: <#T##String#>, name: <#T##String#>, birthdate: <#T##String#>, address: <#T##String#>)
+    }
 }

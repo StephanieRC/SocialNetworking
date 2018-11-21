@@ -9,7 +9,7 @@ target 'SocialNetworking' do
     pod 'Firebase/Database'
     pod 'Firebase/Storage'
 	pod 'TWMessageBarManager'
-    pod 'DatePickerCell'
+    pod 'DatePicker'
 
   # Pods for SocialNetworking
 

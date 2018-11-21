@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double DatePickerCellVersionNumber;
-FOUNDATION_EXPORT const unsigned char DatePickerCellVersionString[];
+FOUNDATION_EXPORT double ExtendedVersionNumber;
+FOUNDATION_EXPORT const unsigned char ExtendedVersionString[];
 

@@ -17,8 +17,6 @@ class ViewController: MRKBaseViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var pwdField: UITextField!
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Login"
@@ -35,8 +33,14 @@ class ViewController: MRKBaseViewController {
     }
     
     @IBAction func loginBtn(_ sender: UIButton) {
-        FirebaseHandler.shared.signIn(email: emailField.text!, passwd: pwdField.text!)
-        performSegue(withIdentifier: "loginSegue", sender: true)
+        FirebaseHandler.shared.signIn(email: emailField.text!, passwd: pwdField.text!){
+            (err) in
+            if err == nil{
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "loginSegue", sender: true)
+                }
+            }
+        }
     }
     
 }

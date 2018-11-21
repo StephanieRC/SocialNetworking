@@ -4,12 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>DatePickerCell.xcscheme</key>
+		<key>DatePicker-DatePicker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+		</dict>
+		<key>DatePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>DatePickerCell.xcscheme</key>
+		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>Extended.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>FirebaseAuth.xcscheme</key>
 		<dict>
