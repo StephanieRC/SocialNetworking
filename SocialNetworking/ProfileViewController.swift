@@ -24,6 +24,8 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func updateBtn(_ sender: UIButton) {
+        let crash = ["fds","fdsa"]
+        print(crash[3])
     }
     
     @IBAction func resetPwdBtn(_ sender: UIButton) {

@@ -133,6 +133,7 @@
 				9723B927219F51F900DAD4BE /* Frameworks */,
 				9723B928219F51F900DAD4BE /* Resources */,
 				50101804EA328B60CDA17852 /* [CP] Embed Pods Frameworks */,
+				971A75B321A5BE160038D58B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -246,6 +247,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialNetworking/Pods-SocialNetworking-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		971A75B321A5BE160038D58B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -413,6 +432,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = T3WY653J29;
 				INFOPLIST_FILE = SocialNetworking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

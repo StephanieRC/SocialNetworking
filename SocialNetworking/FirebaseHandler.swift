@@ -12,7 +12,7 @@ import Firebase
 import FirebaseStorage
 import TWMessageBarManager
 
-typealias completionHandler = ([String]?) ->()
+typealias completionHandler = ([User]?) ->()
 //TODO:CREATE USERMODEL
 
 class FirebaseHandler {
@@ -20,9 +20,9 @@ class FirebaseHandler {
     var storageref: StorageReference! = Storage.storage().reference()
     
     static let shared = FirebaseHandler()
-
+    
     private init(){
-
+        
     }
     
     func updateUserInfo(){
@@ -133,7 +133,7 @@ class FirebaseHandler {
         ref.child(user?.uid ?? "1").observeSingleEvent(of: .value)
         {(Snapchat) in
             if let dict = Snapchat.value as? [String: Any]{
-                let usermodel: User = User.init(displayName: dict["displayName"] as! String, email: dict["email"] as! String, name:dict["name"] as! String, phoneNum: dict["phoneNum"] as! String, language: dict["language"] as! String, birthdate: dict["birthdate"] as! String, address: dict["address"] as! String, city: dict["city"] as! String, state: dict["state"] as! String, country: dict["country"] as! String, zipcode: dict["zipcode"] as! String)
+                let usermodel: User = User.init(id: user?.uid as String!, displayName: dict["displayName"] as! String, email: dict["email"] as! String, name:dict["name"] as! String, phoneNum: dict["phoneNum"] as! String, language: dict["language"] as! String, birthdate: dict["birthdate"] as! String, address: dict["address"] as! String, city: dict["city"] as! String, state: dict["state"] as! String, country: dict["country"] as! String, zipcode: dict["zipcode"] as! String)
                 completion(usermodel)
             }else{
                 completion(nil)
@@ -143,17 +143,18 @@ class FirebaseHandler {
     
     //closures
     func fetchUsers(completion: @escaping completionHandler){
-        var keys : [String] = []
-            ref?.observeSingleEvent(of: .value){
+        var userArr : [User] = []
+        ref?.observeSingleEvent(of: .value){
             (snapshot) in
-            if let user = snapshot.value as? [String: Any]{
+            if let user = snapshot.value as? [String: [String: Any]]{
                 for u in user{
-                    keys.append(u.key)
+                    let usermodel: User = User.init(id: u.key as? String ?? "", displayName: u.value["displayName"] as? String ?? "", email: u.value["email"] as? String ?? "", name: u.value["name"] as? String ?? "", phoneNum: u.value["phoneNum"] as? String ?? "", language: u.value["language"] as? String ?? "", birthdate: u.value["birthdate"] as? String ?? "", address: u.value["address"] as? String ?? "", city: u.value["city"] as? String ?? "", state: u.value["state"] as? String ?? "", country: u.value["country"] as? String ?? "", zipcode: u.value["zipcode"] as? String ?? "")
+                    userArr.append(usermodel)
                 }
-                completion(keys)
+                completion(userArr)
             }else{
                 completion(nil)
-                }
+            }
         }
     }
 }

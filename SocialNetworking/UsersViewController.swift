@@ -10,7 +10,7 @@ import UIKit
 
 class UsersViewController: UIViewController, UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource {
     
-    var userKeys: [String] = []
+    var userKeys: [User] = []
     
     @IBOutlet weak var tblView: UITableView!
     override func viewDidLoad() {
@@ -34,7 +34,8 @@ class UsersViewController: UIViewController, UISearchResultsUpdating, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "usersAllCell") as! UsersTableViewCell
-        cell.nameLbl.text = userKeys[indexPath.row]
+        cell.nameLbl.text = userKeys[indexPath.row].name
+        //cell.im
         return cell
     }
     
