@@ -106,7 +106,7 @@ class FirebaseHandler {
             (result, err) in
             if err == nil{
                 guard let user = result?.user else {return}
-                self.ref.child(user.uid).setValue(["name": name, "displayName": displayName, "birthdate": birthdate, "address": address, "city": city, "state": state, "country": country, "zipcode": zipcode, "language": language, "phoneNum": phoneNum],
+                self.ref.child(user.uid).setValue(["name": name, "displayName": displayName, "email": email, "birthdate": birthdate, "address": address, "city": city, "state": state, "country": country, "zipcode": zipcode, "language": language, "phoneNum": phoneNum],
                                                   withCompletionBlock:{
                                                     (err, self) in
                                                     if let err = err {
@@ -133,7 +133,7 @@ class FirebaseHandler {
         ref.child(user?.uid ?? "1").observeSingleEvent(of: .value)
         {(Snapchat) in
             if let dict = Snapchat.value as? [String: Any]{
-                let usermodel: User = User.init(id: user?.uid as String!, displayName: dict["displayName"] as! String, email: dict["email"] as! String, name:dict["name"] as! String, phoneNum: dict["phoneNum"] as! String, language: dict["language"] as! String, birthdate: dict["birthdate"] as! String, address: dict["address"] as! String, city: dict["city"] as! String, state: dict["state"] as! String, country: dict["country"] as! String, zipcode: dict["zipcode"] as! String)
+                let usermodel: User = User.init(id: user?.uid ?? "", displayName: dict["displayName"] as? String ?? "", email: dict["email"] as? String ?? "", name:dict["name"] as? String ?? "", phoneNum: dict["phoneNum"] as? String ?? "", language: dict["language"] as? String ?? "", birthdate: dict["birthdate"] as? String ?? "", address: dict["address"] as? String ?? "", city: dict["city"] as? String ?? "", state: dict["state"] as? String ?? "", country: dict["country"] as? String ?? "", zipcode: dict["zipcode"] as? String ?? "")
                 completion(usermodel)
             }else{
                 completion(nil)

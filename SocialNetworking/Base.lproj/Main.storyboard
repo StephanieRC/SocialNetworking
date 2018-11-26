@@ -197,13 +197,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="birthdate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="apb-hZ-bEZ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="apb-hZ-bEZ">
                                 <rect key="frame" x="37.5" y="326" width="300" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJC-cU-d20">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="city" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJC-cU-d20">
                                 <rect key="frame" x="37.5" y="364" width="300" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -238,7 +238,7 @@
                                     <action selector="updateBtn:" destination="uVT-Gf-sqz" eventType="touchUpInside" id="Uoq-ZO-WkZ"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PWv-yc-g3T">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PWv-yc-g3T">
                                 <rect key="frame" x="37.5" y="250" width="300" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -295,11 +295,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Setting" image="Tabbar_Account" selectedImage="Tabbar_Account_Selected" id="Esj-C8-9L0"/>
                     <connections>
-                        <outlet property="addressField" destination="TJC-cU-d20" id="RfL-2a-5af"/>
-                        <outlet property="birthdateField" destination="apb-hZ-bEZ" id="qta-TV-K5P"/>
+                        <outlet property="addressField" destination="apb-hZ-bEZ" id="qta-TV-K5P"/>
+                        <outlet property="cityField" destination="TJC-cU-d20" id="RfL-2a-5af"/>
                         <outlet property="emailField" destination="cDD-tI-Mdd" id="e4Z-w7-h5X"/>
                         <outlet property="imgView" destination="l1V-qn-llz" id="OvP-uP-xTE"/>
-                        <outlet property="nameField" destination="PWv-yc-g3T" id="zc0-PG-wSV"/>
+                        <outlet property="phoneField" destination="PWv-yc-g3T" id="zc0-PG-wSV"/>
                         <segue destination="7LG-Sl-pnk" kind="unwind" identifier="unwindSegue" unwindAction="unwindToContainerVCWithSegue:" id="Goa-Wi-scR"/>
                     </connections>
                 </viewController>
@@ -450,7 +450,7 @@
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mf1-1y-oNJ">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Gs8-Cr-bmH">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="179"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -470,7 +470,6 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="esQ-2f-wp3" firstAttribute="centerX" secondItem="hJv-RK-Vh1" secondAttribute="centerX" id="C3u-dj-0kR"/>
                                         <constraint firstItem="esQ-2f-wp3" firstAttribute="top" secondItem="hJv-RK-Vh1" secondAttribute="bottom" constant="8" id="PVG-7r-UrU"/>
@@ -485,13 +484,13 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Z6-Iz-gbc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" title="Sign Up"/>
                                             <connections>
                                                 <action selector="signUpBtn:" destination="11P-Jv-HCS" eventType="touchUpInside" id="nVi-xu-oLm"/>
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="0Z6-Iz-gbc" firstAttribute="leading" secondItem="7Ah-RF-bhT" secondAttribute="leading" id="FCS-rD-2KV"/>
                                         <constraint firstAttribute="bottom" secondItem="0Z6-Iz-gbc" secondAttribute="bottom" id="pbl-nQ-LD9"/>
@@ -521,6 +520,11 @@
                                                 <constraint firstItem="Ovc-Ec-uNF" firstAttribute="centerY" secondItem="Ycr-QJ-Kn3" secondAttribute="centerY" id="XYD-Gp-yMS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="textField" destination="Ovc-Ec-uNF" id="3mr-30-5nQ"/>
                                         </connections>
@@ -546,6 +550,11 @@
                                                 <constraint firstItem="Za7-jj-lO1" firstAttribute="centerY" secondItem="bRQ-0X-NLf" secondAttribute="centerY" id="sDW-zv-Xcd"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
