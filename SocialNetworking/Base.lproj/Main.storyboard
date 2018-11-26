@@ -38,18 +38,16 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn1-4q-0KH">
                                 <rect key="frame" x="93" y="312" width="189" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QJ6-yW-nai"/>
                                 </constraints>
                                 <state key="normal" title="Login">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -57,14 +55,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dND-eR-kAI">
-                                <rect key="frame" x="160.5" y="350" width="54" height="30"/>
+                                <rect key="frame" x="93" y="350" width="189" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="EoH-cc-aWI"/>
                                     <constraint firstAttribute="height" constant="30" id="ZqX-BZ-9Q5"/>
                                 </constraints>
                                 <state key="normal" title="Sign Up">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="11P-Jv-HCS" kind="show" id="Opm-ie-UgJ"/>
                                 </connections>
@@ -81,6 +84,22 @@
                                 </state>
                                 <connections>
                                     <segue destination="hdY-oH-jCa" kind="show" id="yvb-vR-KAn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUL-Wj-28G">
+                                <rect key="frame" x="166" y="397" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="login"/>
+                                <connections>
+                                    <action selector="googleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mbz-k9-oT5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0o-oI-yfC">
+                                <rect key="frame" x="161" y="424" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="logout"/>
+                                <connections>
+                                    <action selector="logoutbtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pHP-ly-cQO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -100,6 +119,7 @@
                             <constraint firstItem="dND-eR-kAI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dZb-Nq-wTU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="etU-Ns-oh5" secondAttribute="trailing" constant="30" id="iBL-f7-1vu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yod-Vc-c0I" secondAttribute="trailing" constant="30" id="pPM-DM-YSu"/>
+                            <constraint firstItem="dND-eR-kAI" firstAttribute="width" secondItem="hn1-4q-0KH" secondAttribute="width" id="rVa-hE-a2v"/>
                             <constraint firstItem="duf-6b-qVX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sDe-fI-eIO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="duf-6b-qVX" secondAttribute="trailing" id="t8x-3C-ktd"/>
                             <constraint firstItem="etU-Ns-oh5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="vRb-tY-2Oe"/>

@@ -11,5 +11,6 @@ target 'SocialNetworking' do
     pod 'DatePicker'
     pod 'Fabric'
     pod 'Crashlytics'
-
+    pod 'GoogleSignIn'
+    pod 'FBSDKLoginKit'
 end
