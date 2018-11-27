@@ -13,6 +13,7 @@ import Fabric
 import Crashlytics
 import GoogleSignIn
 import FBSDKCoreKit
+import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+//        if let curUser = Auth.auth().currentUser {
+//            let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let controller = mainStoryboard.instantiateViewController(withIdentifier: "tabbarController")
+//            self.window?.rootViewController = controller
+//        }
+        
         return true
     }
 

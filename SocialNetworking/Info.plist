@@ -18,19 +18,6 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb394477937758072</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>394477937758072</string>
-    <key>FacebookDisplayName</key>
-    <string>SocialNetworking</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -41,16 +28,28 @@
 				<string>com.googleusercontent.apps.367911491543-9j0jbjigihk5atcs2hq8mvja5nfo4jip</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb394477937758072</string>
+			</array>
+		</dict>
 	</array>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>394477937758072</string>
+	<key>FacebookDisplayName</key>
+	<string>SocialNetworking</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

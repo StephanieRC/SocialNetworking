@@ -13,4 +13,5 @@ target 'SocialNetworking' do
     pod 'Crashlytics'
     pod 'GoogleSignIn'
     pod 'FBSDKLoginKit'
+    pod 'SVProgressHUD'
 end

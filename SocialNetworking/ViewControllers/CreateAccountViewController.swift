@@ -9,15 +9,17 @@
 import UIKit
 import DatePicker
 
-class CreateAccountViewController: MRKBaseViewController, UITableViewDelegate, UITableViewDataSource {
+class CreateAccountViewController: MRKBaseViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var profilePicImgView: UIImageView!
     @IBOutlet weak var tblView: UITableView!
+    let imgPicker = UIImagePickerController()
     
     let textFieldArr = ["Display Name", "Name", "Email", "Password", "Phone Number", "Language", "Address", "City", "State", "Country", "Zipcode"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imgPicker.delegate = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,7 +41,25 @@ class CreateAccountViewController: MRKBaseViewController, UITableViewDelegate, U
         }
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            profilePicImgView.image = img
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func selectImg(_ sender: UIButton) {
+        imgPicker.allowsEditing = true
+        if imgPicker.sourceType == .camera{
+            imgPicker.sourceType = .camera
+        }else if imgPicker.sourceType == .photoLibrary{
+            imgPicker.sourceType = .photoLibrary
+        }
+        present(imgPicker,animated: true, completion: nil)
     }
     
     @IBAction func signUpBtn(_ sender: UIButton) {
@@ -57,7 +77,7 @@ class CreateAccountViewController: MRKBaseViewController, UITableViewDelegate, U
         let zipcell = self.view.viewWithTag(110) as! UITextField
         
         
-        FirebaseHandler.shared.signUp(email: emailcell.text!, pwd: pwdcell.text!, name: namecell.text!, birthdate: "10/10/1993", address: addcell.text!, displayName: disNamecell.text!, phoneNum: pncell.text!, language: lancell.text!, city: citycell.text!, state: statecell.text!, zipcode: zipcell.text!, country: countrycell.text!){
+        FirebaseHandler.shared.signUp(email: emailcell.text!, pwd: pwdcell.text!, name: namecell.text!, birthdate: "10/10/1993", address: addcell.text!, displayName: disNamecell.text!, phoneNum: pncell.text!, language: lancell.text!, city: citycell.text!, state: statecell.text!, zipcode: zipcell.text!, country: countrycell.text!, img: profilePicImgView.image ?? UIImage(named: "bison3")!){
             (err) in
             if err == nil{
                 DispatchQueue.main.async {

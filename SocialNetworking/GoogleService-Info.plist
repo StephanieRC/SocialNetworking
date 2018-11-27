@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>367911491543-9j0jbjigihk5atcs2hq8mvja5nfo4jip.apps.googleusercontent.com</string>
+	<string>373100717470-0kqr8igq3od7bd9l7lqp0leqtu25fp5a.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.367911491543-9j0jbjigihk5atcs2hq8mvja5nfo4jip</string>
+	<string>com.googleusercontent.apps.373100717470-0kqr8igq3od7bd9l7lqp0leqtu25fp5a</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBtpUt8jKuEQU7zHyjcPKdmlabeV2DsnCA</string>
+	<string>AIzaSyBmYPGbHDU1J_BiX4Gr4aHT8gmZ2460ClQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>367911491543</string>
+	<string>373100717470</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.RJTCOMPUQUEST.SocialNetworking</string>
 	<key>PROJECT_ID</key>
-	<string>socialnetworking-62288</string>
+	<string>socialnetworking-9e9ea</string>
 	<key>STORAGE_BUCKET</key>
-	<string>socialnetworking-62288.appspot.com</string>
+	<string>socialnetworking-9e9ea.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:367911491543:ios:16d1f3bee104d005</string>
+	<string>1:373100717470:ios:16d1f3bee104d005</string>
 	<key>DATABASE_URL</key>
-	<string>https://socialnetworking-62288.firebaseio.com</string>
+	<string>https://socialnetworking-9e9ea.firebaseio.com</string>
 </dict>
 </plist>

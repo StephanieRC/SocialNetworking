@@ -14,12 +14,16 @@
 		9723B933219F51F900DAD4BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9723B931219F51F900DAD4BE /* Main.storyboard */; };
 		9723B938219F51FC00DAD4BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9723B937219F51FC00DAD4BE /* Assets.xcassets */; };
 		9723B93B219F51FC00DAD4BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9723B939219F51FC00DAD4BE /* LaunchScreen.storyboard */; };
-		9723B943219F544000DAD4BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9723B942219F544000DAD4BE /* GoogleService-Info.plist */; };
 		97952C9B21A3B03500D3ACA7 /* FirebaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97952C9A21A3B03500D3ACA7 /* FirebaseHandler.swift */; };
 		97952C9D21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97952C9C21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift */; };
 		97952C9F21A4380E00D3ACA7 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97952C9E21A4380E00D3ACA7 /* CreateAccountViewController.swift */; };
 		97952CC221A443F500D3ACA7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97952CC121A443F500D3ACA7 /* ProfileViewController.swift */; };
 		97952CC421A470E700D3ACA7 /* MRKBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97952CC321A470E700D3ACA7 /* MRKBaseViewController.swift */; };
+		97CEDAD021AC72C300B5808D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEDACF21AC72C300B5808D /* SettingsViewController.swift */; };
+		97CEDAD221AC966B00B5808D /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEDAD121AC966B00B5808D /* ImageExtension.swift */; };
+		97CEDAD421AD14D400B5808D /* FriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEDAD321AD14D400B5808D /* FriendListTableViewCell.swift */; };
+		97CEDAD621AD16D900B5808D /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEDAD521AD16D900B5808D /* FriendsListViewController.swift */; };
+		97CEDAD821ADEB3200B5808D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97CEDAD721ADEB3200B5808D /* GoogleService-Info.plist */; };
 		97D0BF0C21A4865B00592A70 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0BF0B21A4865B00592A70 /* UsersViewController.swift */; };
 		97D0BF0E21A4934800592A70 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0BF0D21A4934800592A70 /* UserModel.swift */; };
 		97D0BF1021A49D3E00592A70 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0BF0F21A49D3E00592A70 /* UsersTableViewCell.swift */; };
@@ -38,12 +42,16 @@
 		9723B937219F51FC00DAD4BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9723B93A219F51FC00DAD4BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9723B93C219F51FC00DAD4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9723B942219F544000DAD4BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		97952C9A21A3B03500D3ACA7 /* FirebaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHandler.swift; sourceTree = "<group>"; };
 		97952C9C21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		97952C9E21A4380E00D3ACA7 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		97952CC121A443F500D3ACA7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		97952CC321A470E700D3ACA7 /* MRKBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRKBaseViewController.swift; sourceTree = "<group>"; };
+		97CEDACF21AC72C300B5808D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		97CEDAD121AC966B00B5808D /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		97CEDAD321AD14D400B5808D /* FriendListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewCell.swift; sourceTree = "<group>"; };
+		97CEDAD521AD16D900B5808D /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
+		97CEDAD721ADEB3200B5808D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		97D0BF0B21A4865B00592A70 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		97D0BF0D21A4934800592A70 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		97D0BF0F21A49D3E00592A70 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
@@ -101,24 +109,44 @@
 			isa = PBXGroup;
 			children = (
 				9723B92D219F51F900DAD4BE /* AppDelegate.swift */,
-				9723B92F219F51F900DAD4BE /* ViewController.swift */,
-				97952C9C21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift */,
 				97952C9A21A3B03500D3ACA7 /* FirebaseHandler.swift */,
+				97CEDADB21ADF31800B5808D /* TableViewCells */,
+				97CEDADA21ADF28600B5808D /* ViewControllers */,
 				9723B931219F51F900DAD4BE /* Main.storyboard */,
+				97CEDAD121AC966B00B5808D /* ImageExtension.swift */,
 				97D0BF0D21A4934800592A70 /* UserModel.swift */,
-				97952C9E21A4380E00D3ACA7 /* CreateAccountViewController.swift */,
-				97952CC121A443F500D3ACA7 /* ProfileViewController.swift */,
-				971A75AD21A5261E0038D58B /* TextFieldTableViewCell.swift */,
-				97D0BF0B21A4865B00592A70 /* UsersViewController.swift */,
-				97D0BF0F21A49D3E00592A70 /* UsersTableViewCell.swift */,
-				97952CC321A470E700D3ACA7 /* MRKBaseViewController.swift */,
-				971A75AB21A50FB10038D58B /* ImageProfileTableViewCell.swift */,
+				97CEDAD721ADEB3200B5808D /* GoogleService-Info.plist */,
 				9723B937219F51FC00DAD4BE /* Assets.xcassets */,
 				9723B939219F51FC00DAD4BE /* LaunchScreen.storyboard */,
 				9723B93C219F51FC00DAD4BE /* Info.plist */,
-				9723B942219F544000DAD4BE /* GoogleService-Info.plist */,
 			);
 			path = SocialNetworking;
+			sourceTree = "<group>";
+		};
+		97CEDADA21ADF28600B5808D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				97952C9C21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift */,
+				9723B92F219F51F900DAD4BE /* ViewController.swift */,
+				97CEDACF21AC72C300B5808D /* SettingsViewController.swift */,
+				97CEDAD521AD16D900B5808D /* FriendsListViewController.swift */,
+				97952C9E21A4380E00D3ACA7 /* CreateAccountViewController.swift */,
+				97952CC121A443F500D3ACA7 /* ProfileViewController.swift */,
+				97952CC321A470E700D3ACA7 /* MRKBaseViewController.swift */,
+				97D0BF0B21A4865B00592A70 /* UsersViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		97CEDADB21ADF31800B5808D /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				971A75AD21A5261E0038D58B /* TextFieldTableViewCell.swift */,
+				97D0BF0F21A49D3E00592A70 /* UsersTableViewCell.swift */,
+				971A75AB21A50FB10038D58B /* ImageProfileTableViewCell.swift */,
+				97CEDAD321AD14D400B5808D /* FriendListTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9723B93B219F51FC00DAD4BE /* LaunchScreen.storyboard in Resources */,
-				9723B943219F544000DAD4BE /* GoogleService-Info.plist in Resources */,
+				97CEDAD821ADEB3200B5808D /* GoogleService-Info.plist in Resources */,
 				9723B938219F51FC00DAD4BE /* Assets.xcassets in Resources */,
 				9723B933219F51F900DAD4BE /* Main.storyboard in Resources */,
 			);
@@ -255,6 +283,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/TWMessageBarManager/TWMessageBarManager.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -272,6 +301,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TWMessageBarManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -306,9 +336,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97CEDAD621AD16D900B5808D /* FriendsListViewController.swift in Sources */,
 				971A75AC21A50FB10038D58B /* ImageProfileTableViewCell.swift in Sources */,
 				97952C9F21A4380E00D3ACA7 /* CreateAccountViewController.swift in Sources */,
 				97952C9D21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift in Sources */,
+				97CEDAD221AC966B00B5808D /* ImageExtension.swift in Sources */,
 				971A75AE21A5261E0038D58B /* TextFieldTableViewCell.swift in Sources */,
 				9723B930219F51F900DAD4BE /* ViewController.swift in Sources */,
 				97952CC221A443F500D3ACA7 /* ProfileViewController.swift in Sources */,
@@ -316,7 +348,9 @@
 				9723B92E219F51F900DAD4BE /* AppDelegate.swift in Sources */,
 				97D0BF0C21A4865B00592A70 /* UsersViewController.swift in Sources */,
 				97952CC421A470E700D3ACA7 /* MRKBaseViewController.swift in Sources */,
+				97CEDAD021AC72C300B5808D /* SettingsViewController.swift in Sources */,
 				97D0BF0E21A4934800592A70 /* UserModel.swift in Sources */,
+				97CEDAD421AD14D400B5808D /* FriendListTableViewCell.swift in Sources */,
 				97952C9B21A3B03500D3ACA7 /* FirebaseHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 class User{
     var id: String
     var displayName: String
@@ -20,8 +22,9 @@ class User{
     var state: String
     var country: String
     var zipcode: String
+    var img: UIImage?
     
-    init(id: String, displayName: String, email:String, name:String, phoneNum:String, language:String, birthdate: String, address: String, city:String, state:String, country:String, zipcode: String) {
+    init(id: String, displayName: String, email:String, name:String, phoneNum:String, language:String, birthdate: String, address: String, city:String, state:String, country:String, zipcode: String, img: UIImage?) {
         self.id = id
         self.displayName = displayName
         self.email = email
@@ -34,5 +37,6 @@ class User{
         self.state = state
         self.country = country
         self.zipcode = zipcode
+        self.img = img
     }
 }
