@@ -23,8 +23,10 @@ class User{
     var country: String
     var zipcode: String
     var img: UIImage?
+    var lat: String
+    var lon: String
     
-    init(id: String, displayName: String, email:String, name:String, phoneNum:String, language:String, birthdate: String, address: String, city:String, state:String, country:String, zipcode: String, img: UIImage?) {
+    init(id: String, displayName: String, email:String, name:String, phoneNum:String, language:String, birthdate: String, address: String, city:String, state:String, country:String, zipcode: String, lat: String, lon: String, img: UIImage?) {
         self.id = id
         self.displayName = displayName
         self.email = email
@@ -37,6 +39,8 @@ class User{
         self.state = state
         self.country = country
         self.zipcode = zipcode
+        self.lat = lat
+        self.lon = lon
         self.img = img
     }
 }

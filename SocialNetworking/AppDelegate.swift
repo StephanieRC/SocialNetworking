@@ -14,18 +14,20 @@ import Crashlytics
 import GoogleSignIn
 import FBSDKCoreKit
 import FirebaseAuth
+import GoogleMaps
+
+let googlekey = "AIzaSyCp4OK4MNG3dZvEhUjSVzhsPu0i2Raz-Tw"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GMSServices.provideAPIKey(googlekey)
         FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
         
 //        if let curUser = Auth.auth().currentUser {

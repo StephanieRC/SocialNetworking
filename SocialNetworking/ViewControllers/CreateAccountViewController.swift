@@ -8,8 +8,9 @@
 
 import UIKit
 import DatePicker
+import CoreLocation
 
-class CreateAccountViewController: MRKBaseViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class CreateAccountViewController: MRKBaseViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate{
     
     @IBOutlet weak var profilePicImgView: UIImageView!
     @IBOutlet weak var tblView: UITableView!

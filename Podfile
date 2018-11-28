@@ -14,4 +14,5 @@ target 'SocialNetworking' do
     pod 'GoogleSignIn'
     pod 'FBSDKLoginKit'
     pod 'SVProgressHUD'
+    pod 'GoogleMaps'
 end

@@ -39,6 +39,12 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+    <key>NSLocationUsageDescription</key>
+    <string></string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string></string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string></string>
 	<key>FacebookAppID</key>
 	<string>394477937758072</string>
 	<key>FacebookDisplayName</key>

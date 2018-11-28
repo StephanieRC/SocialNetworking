@@ -63,6 +63,11 @@ PODS:
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
+  - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
+    - GoogleMaps/Base
   - GoogleSignIn (4.3.0):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
@@ -119,6 +124,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - GoogleMaps
   - GoogleSignIn
   - SVProgressHUD
   - TWMessageBarManager
@@ -141,6 +147,7 @@ SPEC REPOS:
     - FirebaseInstanceID
     - FirebaseStorage
     - GoogleAppMeasurement
+    - GoogleMaps
     - GoogleSignIn
     - GoogleToolboxForMac
     - GoogleUtilities
@@ -168,6 +175,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
   FirebaseStorage: 3d22c041370593e639fba013d1eb698a8dae2881
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   GoogleSignIn: 11183592dc63e105475c7305a325045ff95e02b7
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GoogleUtilities: bb6ff5a302c97a0bc9820dad775505778c5a2676
@@ -178,6 +186,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TWMessageBarManager: fd84e7948ba7968a2b5d9454859135761214ec56
 
-PODFILE CHECKSUM: c1c0e1cc28cca54f701a980950970a10947ae8bd
+PODFILE CHECKSUM: 9f54fefae886cc371ffeb6cf9d95dd5826e9ac66
 
 COCOAPODS: 1.5.3

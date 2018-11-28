@@ -101,7 +101,16 @@ class FirebaseHandler {
                 completion("no friend for you")
             }
         }
-        
+    }
+    
+    func removeFriend(friendId : String, userid: String, completion : @escaping (String) -> ()) {
+        ref.child(userid).child("friends").child(friendId).removeValue { (err, dbref) in
+            if err == nil{
+                completion("Friend is no longer")
+            }else{
+                completion("U are still friends")
+            }
+        }
     }
     
     func resetPwd(email: String){
@@ -140,10 +149,12 @@ class FirebaseHandler {
     }
     
     func signUp(email: String, pwd: String, name: String, birthdate: String, address: String, displayName:String, phoneNum: String, language:String, city:String, state:String, zipcode:String, country:String, img: UIImage, completion: @escaping (Error?) ->()){
+        let dispatchgroup = DispatchGroup()
         Auth.auth().createUser(withEmail: email, password: pwd)
         {
             (result, err) in
             if err == nil{
+                dispatchgroup.enter()
                 guard let user = result?.user else {return}
                 self.ref.child(user.uid).setValue(["name": name, "displayName": displayName, "email": email, "birthdate": birthdate, "address": address, "city": city, "state": state, "country": country, "zipcode": zipcode, "language": language, "phoneNum": phoneNum],
                                                   withCompletionBlock:{
@@ -156,13 +167,17 @@ class FirebaseHandler {
                                                     }
                                                     
                 })
-                TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "Sucessfully created new user", type: .success)
                 self.uploadImg(image: img)
+                dispatchgroup.leave()
+                TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "Sucessfully created new user", type: .success)
                 completion(nil)
             }else
             {
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Error", description: err?.localizedDescription, type: .error)
                 completion(err)
+            }
+            dispatchgroup.notify(queue: .main){
+                completion(nil)
             }
         }
     }
@@ -171,7 +186,8 @@ class FirebaseHandler {
         ref.child(uid).observeSingleEvent(of: .value)
         {(Snapchat) in
             if let dict = Snapchat.value as? [String: Any]{
-                let usermodel: User = User.init(id: uid, displayName: dict["displayName"] as? String ?? "", email: dict["email"] as? String ?? "", name:dict["name"] as? String ?? "", phoneNum: dict["phoneNum"] as? String ?? "", language: dict["language"] as? String ?? "", birthdate: dict["birthdate"] as? String ?? "", address: dict["address"] as? String ?? "", city: dict["city"] as? String ?? "", state: dict["state"] as? String ?? "", country: dict["country"] as? String ?? "", zipcode: dict["zipcode"] as? String ?? "", img: nil)
+                let coor = dict["coordinate"] as? [String: String]
+                let usermodel: User = User.init(id: uid, displayName: dict["displayName"] as? String ?? "", email: dict["email"] as? String ?? "", name:dict["name"] as? String ?? "", phoneNum: dict["phoneNum"] as? String ?? "", language: dict["language"] as? String ?? "", birthdate: dict["birthdate"] as? String ?? "", address: dict["address"] as? String ?? "", city: dict["city"] as? String ?? "", state: dict["state"] as? String ?? "", country: dict["country"] as? String ?? "", zipcode: dict["zipcode"] as? String ?? "", lat: coor?["lat"] ?? "", lon: coor?["lon"] ?? "", img: nil)
                 completion(usermodel)
             }else{
                 completion(nil)
@@ -190,7 +206,8 @@ class FirebaseHandler {
                         guard let singleFriend = singleFriendSnapShot.value as? Dictionary<String, Any> else{
                             return
                         }
-                        let usermodel: User = User.init(id: friend.key, displayName: singleFriend["displayName"] as? String ?? "", email: singleFriend["email"] as? String ?? "", name: singleFriend["name"] as? String ?? "", phoneNum: singleFriend["phoneNum"] as? String ?? "", language: singleFriend["language"] as? String ?? "", birthdate: singleFriend["birthdate"] as? String ?? "", address: singleFriend["address"] as? String ?? "", city: singleFriend["city"] as? String ?? "", state: singleFriend["state"] as? String ?? "", country: singleFriend["country"] as? String ?? "", zipcode: singleFriend["zipcode"] as? String ?? "", img: nil)
+                        let coor = singleFriend["coordinate"] as? [String: String]
+                        let usermodel: User = User.init(id: friend.key, displayName: singleFriend["displayName"] as? String ?? "", email: singleFriend["email"] as? String ?? "", name: singleFriend["name"] as? String ?? "", phoneNum: singleFriend["phoneNum"] as? String ?? "", language: singleFriend["language"] as? String ?? "", birthdate: singleFriend["birthdate"] as? String ?? "", address: singleFriend["address"] as? String ?? "", city: singleFriend["city"] as? String ?? "", state: singleFriend["state"] as? String ?? "", country: singleFriend["country"] as? String ?? "", zipcode: singleFriend["zipcode"] as? String ?? "", lat: coor?["lat"] ?? "", lon: coor?["lon"] ?? "", img: nil)
                         self.downloadAnyUserImg(uid: usermodel.id, completion: { (img, err) in
                             usermodel.img = img
                             friendArr.append(usermodel)
@@ -207,38 +224,57 @@ class FirebaseHandler {
         })
     }
     
-    //closures
-    func fetchUsers(completion: @escaping completionHandler){
-        var userArr : [User] = []
-        let fetchUserGroup = DispatchGroup()
-        let fetchUserComponentsGroup = DispatchGroup()
-        fetchUserGroup.enter()
-        ref?.observeSingleEvent(of: .value){
-            (snapshot) in
-            if let user = snapshot.value as? [String: [String: Any]]{
-                for u in user{
-                    let usermodel: User = User.init(id: u.key, displayName: u.value["displayName"] as? String ?? "", email: u.value["email"] as? String ?? "", name: u.value["name"] as? String ?? "", phoneNum: u.value["phoneNum"] as? String ?? "", language: u.value["language"] as? String ?? "", birthdate: u.value["birthdate"] as? String ?? "", address: u.value["address"] as? String ?? "", city: u.value["city"] as? String ?? "", state: u.value["state"] as? String ?? "", country: u.value["country"] as? String ?? "", zipcode: u.value["zipcode"] as? String ?? "", img: nil)
-                    fetchUserComponentsGroup.enter()
-                    self.downloadAnyUserImg(uid: u.key, completion: { (img, err) in
-                        usermodel.img = img
-                        fetchUserComponentsGroup.leave()
-                        if usermodel.id != self.getCurrentUid(){
-                            userArr.append(usermodel)
-                        }
-                    })
+    func retrieveFriendUID(completion: @escaping ([String])->()) {
+        var friendUidArr: [String] = []
+        ref.child(getCurrentUid()).child("friends").observeSingleEvent(of: .value) { (ds) in
+            if let friendsuids = ds.value as? [String: String]{
+                for frienduid in friendsuids{
+                    friendUidArr.append(frienduid.key)
                 }
-                
-                fetchUserComponentsGroup.notify(queue: .main) {
-                    fetchUserGroup.leave()
-                }
-                
-                fetchUserGroup.notify(queue: .main) {
-                    // now the currentUser should be properly configured
-                    completion(userArr)
-                }
+                completion(friendUidArr)
             }else{
-                completion(nil)
+                completion([])
             }
         }
+    }
+    
+    //closures
+    func fetchUsers(completion: @escaping ([(user: User, friend: Bool)]?) ->()){
+        retrieveFriendUID { (friendslist) in
+            var userArr : [(User, Bool)] = []
+            let fetchUserGroup = DispatchGroup()
+            let fetchUserComponentsGroup = DispatchGroup()
+            fetchUserGroup.enter()
+            self.ref?.observeSingleEvent(of: .value){
+                (snapshot) in
+                if let user = snapshot.value as? [String: [String: Any]]{
+                    for u in user{
+                        let coor = u.value["coordinate"] as? [String: String]
+                        let usermodel: User = User.init(id: u.key, displayName: u.value["displayName"] as? String ?? "", email: u.value["email"] as? String ?? "", name: u.value["name"] as? String ?? "", phoneNum: u.value["phoneNum"] as? String ?? "", language: u.value["language"] as? String ?? "", birthdate: u.value["birthdate"] as? String ?? "", address: u.value["address"] as? String ?? "", city: u.value["city"] as? String ?? "", state: u.value["state"] as? String ?? "", country: u.value["country"] as? String ?? "", zipcode: u.value["zipcode"] as? String ?? "", lat: coor?["lat"] ?? "", lon: coor?["lon"] ?? "", img: nil)
+                        let friend: Bool = friendslist.contains(u.key) ? true: false
+                        fetchUserComponentsGroup.enter()
+                        self.downloadAnyUserImg(uid: u.key, completion: { (img, err) in
+                            usermodel.img = img
+                            fetchUserComponentsGroup.leave()
+                            if usermodel.id != self.getCurrentUid(){
+                                userArr.append((usermodel, friend))
+                            }
+                        })
+                    }
+                    
+                    fetchUserComponentsGroup.notify(queue: .main) {
+                        fetchUserGroup.leave()
+                    }
+                    
+                    fetchUserGroup.notify(queue: .main) {
+                        // now the currentUser should be properly configured
+                        completion(userArr)
+                    }
+                }else{
+                    completion(nil)
+                }
+            }
+        }
+        
     }
 }

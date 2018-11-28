@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		971A75AC21A50FB10038D58B /* ImageProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971A75AB21A50FB10038D58B /* ImageProfileTableViewCell.swift */; };
 		971A75AE21A5261E0038D58B /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971A75AD21A5261E0038D58B /* TextFieldTableViewCell.swift */; };
+		9722BFF721AEE9E5008C3D31 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9722BFF621AEE9E5008C3D31 /* MapViewController.swift */; };
+		9722BFF921AF217E008C3D31 /* MapGoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9722BFF821AF217D008C3D31 /* MapGoogleViewController.swift */; };
 		9723B92E219F51F900DAD4BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723B92D219F51F900DAD4BE /* AppDelegate.swift */; };
 		9723B930219F51F900DAD4BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723B92F219F51F900DAD4BE /* ViewController.swift */; };
 		9723B933219F51F900DAD4BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9723B931219F51F900DAD4BE /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 		37D219A18097B76349206453 /* Pods-SocialNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworking/Pods-SocialNetworking.release.xcconfig"; sourceTree = "<group>"; };
 		971A75AB21A50FB10038D58B /* ImageProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProfileTableViewCell.swift; sourceTree = "<group>"; };
 		971A75AD21A5261E0038D58B /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		9722BFF621AEE9E5008C3D31 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9722BFF821AF217D008C3D31 /* MapGoogleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGoogleViewController.swift; sourceTree = "<group>"; };
 		9723B92A219F51F900DAD4BE /* SocialNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9723B92D219F51F900DAD4BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9723B92F219F51F900DAD4BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +137,9 @@
 				97952C9E21A4380E00D3ACA7 /* CreateAccountViewController.swift */,
 				97952CC121A443F500D3ACA7 /* ProfileViewController.swift */,
 				97952CC321A470E700D3ACA7 /* MRKBaseViewController.swift */,
+				9722BFF621AEE9E5008C3D31 /* MapViewController.swift */,
 				97D0BF0B21A4865B00592A70 /* UsersViewController.swift */,
+				9722BFF821AF217D008C3D31 /* MapGoogleViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -252,12 +258,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SocialNetworking/Pods-SocialNetworking-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +360,8 @@
 				97D0BF0E21A4934800592A70 /* UserModel.swift in Sources */,
 				97CEDAD421AD14D400B5808D /* FriendListTableViewCell.swift in Sources */,
 				97952C9B21A3B03500D3ACA7 /* FirebaseHandler.swift in Sources */,
+				9722BFF921AF217E008C3D31 /* MapGoogleViewController.swift in Sources */,
+				9722BFF721AEE9E5008C3D31 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
