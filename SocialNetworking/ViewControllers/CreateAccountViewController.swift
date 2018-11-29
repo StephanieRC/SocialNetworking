@@ -15,12 +15,20 @@ class CreateAccountViewController: MRKBaseViewController, UITableViewDelegate, U
     @IBOutlet weak var profilePicImgView: UIImageView!
     @IBOutlet weak var tblView: UITableView!
     let imgPicker = UIImagePickerController()
+    var locationmanager = CLLocationManager()
+    var lat: String = "0.0"
+    var lon: String = "0.0"
+    var dg = DispatchGroup()
     
     let textFieldArr = ["Display Name", "Name", "Email", "Password", "Phone Number", "Language", "Address", "City", "State", "Country", "Zipcode"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imgPicker.delegate = self
+        locationmanager.requestWhenInUseAuthorization()
+        locationmanager.delegate = self
+        locationmanager.desiredAccuracy = kCLLocationAccuracyBest
+        locationmanager.distanceFilter = 30
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,15 +84,33 @@ class CreateAccountViewController: MRKBaseViewController, UITableViewDelegate, U
         let statecell = self.view.viewWithTag(108) as! UITextField
         let countrycell = self.view.viewWithTag(109) as! UITextField
         let zipcell = self.view.viewWithTag(110) as! UITextField
-        
-        
-        FirebaseHandler.shared.signUp(email: emailcell.text!, pwd: pwdcell.text!, name: namecell.text!, birthdate: "10/10/1993", address: addcell.text!, displayName: disNamecell.text!, phoneNum: pncell.text!, language: lancell.text!, city: citycell.text!, state: statecell.text!, zipcode: zipcell.text!, country: countrycell.text!, img: profilePicImgView.image ?? UIImage(named: "bison3")!){
-            (err) in
-            if err == nil{
-                DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
+        dg.enter()
+        locationmanager.requestLocation()
+        dg.notify(queue: .main){
+            FirebaseHandler.shared.signUp(email: emailcell.text!, pwd: pwdcell.text!, name: namecell.text!, birthdate: "10/10/1993", address: addcell.text!, displayName: disNamecell.text!, phoneNum: pncell.text!, language: lancell.text!, city: citycell.text!, state: statecell.text!, zipcode: zipcell.text!, country: countrycell.text!, lat: self.lat, lon: self.lon, img: self.profilePicImgView.image ?? UIImage(named: "bison3")!){
+                (err) in
+                if err == nil{
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 }
             }
         }
+    }
+    
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let loc = locations.last{
+            locationmanager.stopUpdatingLocation()
+            lat = String(loc.coordinate.latitude)
+            lon = String(loc.coordinate.longitude)
+            //getCurrentCity(loc: loc)
+        }
+        dg.leave()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
     }
 }

@@ -103,6 +103,16 @@ class FirebaseHandler {
         }
     }
     
+    func addCoor(lat : String, lon: String, completion : @escaping (Error?) -> ()) {
+        ref.child(getCurrentUid()).child("friends").updateChildValues(["lat": lat, "lon": lon]) { (err, dbref) in
+            if err == nil{
+                completion(nil)
+            }else{
+                completion(err)
+            }
+        }
+    }
+    
     func removeFriend(friendId : String, userid: String, completion : @escaping (String) -> ()) {
         ref.child(userid).child("friends").child(friendId).removeValue { (err, dbref) in
             if err == nil{
@@ -148,7 +158,7 @@ class FirebaseHandler {
         }
     }
     
-    func signUp(email: String, pwd: String, name: String, birthdate: String, address: String, displayName:String, phoneNum: String, language:String, city:String, state:String, zipcode:String, country:String, img: UIImage, completion: @escaping (Error?) ->()){
+    func signUp(email: String, pwd: String, name: String, birthdate: String, address: String, displayName:String, phoneNum: String, language:String, city:String, state:String, zipcode:String, country:String, lat: String, lon: String, img: UIImage, completion: @escaping (Error?) ->()){
         let dispatchgroup = DispatchGroup()
         Auth.auth().createUser(withEmail: email, password: pwd)
         {
@@ -162,15 +172,21 @@ class FirebaseHandler {
                                                     if let err = err {
                                                         print("Data could not be saved: \(err).")
                                                     } else {
-                                                        
                                                         print("Data saved successfully!")
                                                     }
                                                     
                 })
                 self.uploadImg(image: img)
-                dispatchgroup.leave()
+                self.addCoor(lat: lat, lon: lon, completion: { (err) in
+                    if err == nil{
+                        dispatchgroup.leave()
+                    }else{
+                        print(err?.localizedDescription)
+                    }
+                })
+//                dispatchgroup.leave()
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "Sucessfully created new user", type: .success)
-                completion(nil)
+//                completion(nil)
             }else
             {
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Error", description: err?.localizedDescription, type: .error)
@@ -194,7 +210,8 @@ class FirebaseHandler {
             }
         }
     }
-    //
+    
+    //MARK: Alok's implementation DispatchGroup()
     func retrieveFriendList(completion: @escaping ([User]?)->()){
         var friendArr: [User] = []
         let dispatchgroup = DispatchGroup()
@@ -239,6 +256,7 @@ class FirebaseHandler {
     }
     
     //closures
+    //MARK: Lokesh's implementation DispatchGroup()
     func fetchUsers(completion: @escaping ([(user: User, friend: Bool)]?) ->()){
         retrieveFriendUID { (friendslist) in
             var userArr : [(User, Bool)] = []

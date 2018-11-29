@@ -11,6 +11,8 @@
 		971A75AE21A5261E0038D58B /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971A75AD21A5261E0038D58B /* TextFieldTableViewCell.swift */; };
 		9722BFF721AEE9E5008C3D31 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9722BFF621AEE9E5008C3D31 /* MapViewController.swift */; };
 		9722BFF921AF217E008C3D31 /* MapGoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9722BFF821AF217D008C3D31 /* MapGoogleViewController.swift */; };
+		9722BFFB21B08121008C3D31 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9722BFFA21B08121008C3D31 /* AddPostViewController.swift */; };
+		9722BFFD21B08868008C3D31 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9722BFFC21B08868008C3D31 /* HomeViewController.swift */; };
 		9723B92E219F51F900DAD4BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723B92D219F51F900DAD4BE /* AppDelegate.swift */; };
 		9723B930219F51F900DAD4BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723B92F219F51F900DAD4BE /* ViewController.swift */; };
 		9723B933219F51F900DAD4BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9723B931219F51F900DAD4BE /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 		971A75AD21A5261E0038D58B /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		9722BFF621AEE9E5008C3D31 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9722BFF821AF217D008C3D31 /* MapGoogleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGoogleViewController.swift; sourceTree = "<group>"; };
+		9722BFFA21B08121008C3D31 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
+		9722BFFC21B08868008C3D31 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9723B92A219F51F900DAD4BE /* SocialNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9723B92D219F51F900DAD4BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9723B92F219F51F900DAD4BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 				9722BFF621AEE9E5008C3D31 /* MapViewController.swift */,
 				97D0BF0B21A4865B00592A70 /* UsersViewController.swift */,
 				9722BFF821AF217D008C3D31 /* MapGoogleViewController.swift */,
+				9722BFFA21B08121008C3D31 /* AddPostViewController.swift */,
+				9722BFFC21B08868008C3D31 /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 				97CEDAD621AD16D900B5808D /* FriendsListViewController.swift in Sources */,
 				971A75AC21A50FB10038D58B /* ImageProfileTableViewCell.swift in Sources */,
 				97952C9F21A4380E00D3ACA7 /* CreateAccountViewController.swift in Sources */,
+				9722BFFB21B08121008C3D31 /* AddPostViewController.swift in Sources */,
 				97952C9D21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift in Sources */,
 				97CEDAD221AC966B00B5808D /* ImageExtension.swift in Sources */,
 				971A75AE21A5261E0038D58B /* TextFieldTableViewCell.swift in Sources */,
@@ -358,6 +365,7 @@
 				97952CC421A470E700D3ACA7 /* MRKBaseViewController.swift in Sources */,
 				97CEDAD021AC72C300B5808D /* SettingsViewController.swift in Sources */,
 				97D0BF0E21A4934800592A70 /* UserModel.swift in Sources */,
+				9722BFFD21B08868008C3D31 /* HomeViewController.swift in Sources */,
 				97CEDAD421AD14D400B5808D /* FriendListTableViewCell.swift in Sources */,
 				97952C9B21A3B03500D3ACA7 /* FirebaseHandler.swift in Sources */,
 				9722BFF921AF217E008C3D31 /* MapGoogleViewController.swift in Sources */,

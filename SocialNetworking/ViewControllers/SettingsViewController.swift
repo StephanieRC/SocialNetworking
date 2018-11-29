@@ -22,7 +22,6 @@ class SettingsViewController: UIViewController{
     @IBAction func logoutBtn(_ sender: UIButton) {
         do{
             try Auth.auth().signOut()
-            self.performSegue(withIdentifier: "unwindSegue", sender: self)
         }catch{
             
         }

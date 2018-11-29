@@ -81,10 +81,6 @@ class ViewController: MRKBaseViewController, GIDSignInDelegate, GIDSignInUIDeleg
         
     }
     
-    @IBAction func unwindToContainerVC(segue: UIStoryboardSegue) {
-        
-    }
-    
     @IBAction func loginBtn(_ sender: UIButton) {
         FirebaseHandler.shared.signIn(email: emailField.text!, passwd: pwdField.text!){
             (err) in

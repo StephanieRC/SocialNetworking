@@ -30,11 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(googlekey)
         FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
         
-//        if let curUser = Auth.auth().currentUser {
-//            let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let controller = mainStoryboard.instantiateViewController(withIdentifier: "tabbarController")
-//            self.window?.rootViewController = controller
-//        }
+        if let curUser = Auth.auth().currentUser {
+            let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = mainStoryboard.instantiateViewController(withIdentifier: "tabbarController")
+            self.window?.rootViewController = controller
+        }
         
         return true
     }

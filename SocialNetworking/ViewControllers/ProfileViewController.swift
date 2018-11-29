@@ -80,6 +80,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         FirebaseHandler.shared.uploadImg(image: imgView.image ?? UIImage(named: "bison3")!)
     }
+    
     @IBAction func logoutBtn(_ sender: UIButton) {
         
         
