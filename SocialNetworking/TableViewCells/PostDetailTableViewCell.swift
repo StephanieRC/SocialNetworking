@@ -9,7 +9,18 @@
 import UIKit
 
 class PostDetailTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var userPhotoImgView: UIImageView!
+    @IBOutlet weak var displayNameLabel: UILabel!
+    @IBOutlet weak var postPhotoImgView: UIImageView!
+    @IBOutlet weak var likeImgView: UIImageView!
+    @IBOutlet weak var likeBtn: UIButton!
+    @IBOutlet weak var commentBtn: UIButton!
+    @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var likesLbl: UILabel!
+    @IBOutlet weak var commentPreviewLbl: UILabel!
+    @IBOutlet weak var viewAllCommentsBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -17,8 +28,6 @@ class PostDetailTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

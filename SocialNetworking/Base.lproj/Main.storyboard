@@ -336,30 +336,30 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recent comment" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGA-HM-KCQ">
-                                                    <rect key="frame" x="8" y="309" width="367" height="29.5"/>
+                                                    <rect key="frame" x="8" y="309" width="367" height="23.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="view all comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfO-uG-3LO">
-                                                    <rect key="frame" x="8" y="338.5" width="359" height="21"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a7-8z-LbC">
+                                                    <rect key="frame" x="8" y="332.5" width="359" height="19"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="xvD-Bb-Fw0"/>
+                                                        <constraint firstAttribute="height" constant="19" id="K4D-Oh-BHA"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <state key="normal" title="view all comments">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="feJ-KT-U88" firstAttribute="leading" secondItem="mo4-CG-qaf" secondAttribute="leading" id="34V-pr-CaT"/>
                                                 <constraint firstAttribute="trailing" secondItem="kGA-HM-KCQ" secondAttribute="trailing" id="48Y-HH-MVc"/>
-                                                <constraint firstAttribute="trailing" secondItem="mfO-uG-3LO" secondAttribute="trailing" constant="8" id="7nZ-Tp-xAz"/>
-                                                <constraint firstAttribute="bottom" secondItem="mfO-uG-3LO" secondAttribute="bottom" id="96a-Qu-sVf"/>
-                                                <constraint firstItem="mfO-uG-3LO" firstAttribute="top" secondItem="kGA-HM-KCQ" secondAttribute="bottom" id="9RK-5C-od2"/>
-                                                <constraint firstItem="mfO-uG-3LO" firstAttribute="leading" secondItem="mo4-CG-qaf" secondAttribute="leading" constant="8" id="CjU-7i-01l"/>
                                                 <constraint firstItem="kGA-HM-KCQ" firstAttribute="top" secondItem="Uzz-ws-4fy" secondAttribute="bottom" id="Gqv-Kw-2Ye"/>
+                                                <constraint firstAttribute="trailing" secondItem="0a7-8z-LbC" secondAttribute="trailing" constant="8" id="IPK-79-hKL"/>
                                                 <constraint firstItem="CZ1-Rs-yhR" firstAttribute="top" secondItem="UzJ-KG-JEa" secondAttribute="bottom" id="Meh-m8-FqA"/>
+                                                <constraint firstAttribute="bottom" secondItem="0a7-8z-LbC" secondAttribute="bottom" constant="8" id="Nuf-MA-dWJ"/>
+                                                <constraint firstItem="0a7-8z-LbC" firstAttribute="top" secondItem="kGA-HM-KCQ" secondAttribute="bottom" id="Ps8-5n-QES"/>
                                                 <constraint firstItem="UzJ-KG-JEa" firstAttribute="leading" secondItem="mo4-CG-qaf" secondAttribute="leading" id="Ra3-j8-4Wt"/>
                                                 <constraint firstAttribute="trailing" secondItem="Uzz-ws-4fy" secondAttribute="trailing" id="VGz-1Q-0kM"/>
                                                 <constraint firstItem="CZ1-Rs-yhR" firstAttribute="leading" secondItem="mo4-CG-qaf" secondAttribute="leading" id="apS-su-DpN"/>
@@ -367,12 +367,26 @@
                                                 <constraint firstItem="Uzz-ws-4fy" firstAttribute="top" secondItem="CZ1-Rs-yhR" secondAttribute="bottom" id="gKz-1b-kNE"/>
                                                 <constraint firstItem="Uzz-ws-4fy" firstAttribute="leading" secondItem="mo4-CG-qaf" secondAttribute="leading" constant="8" id="hHJ-DI-nvr"/>
                                                 <constraint firstItem="UzJ-KG-JEa" firstAttribute="top" secondItem="feJ-KT-U88" secondAttribute="bottom" id="qrj-Q9-DIA"/>
+                                                <constraint firstItem="0a7-8z-LbC" firstAttribute="leading" secondItem="mo4-CG-qaf" secondAttribute="leading" constant="8" id="rnh-Zo-PB4"/>
                                                 <constraint firstItem="feJ-KT-U88" firstAttribute="top" secondItem="mo4-CG-qaf" secondAttribute="top" id="shd-aV-1eA"/>
                                                 <constraint firstAttribute="trailing" secondItem="CZ1-Rs-yhR" secondAttribute="trailing" id="uMc-0Q-CUv"/>
                                                 <constraint firstAttribute="trailing" secondItem="feJ-KT-U88" secondAttribute="trailing" id="vIc-8S-ysu"/>
                                                 <constraint firstAttribute="trailing" secondItem="UzJ-KG-JEa" secondAttribute="trailing" id="vpI-Ml-n3q"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="commentBtn" destination="Qsp-ag-97G" id="S6O-UG-0hd"/>
+                                            <outlet property="commentPreviewLbl" destination="kGA-HM-KCQ" id="npg-wp-t3t"/>
+                                            <outlet property="displayNameLabel" destination="tRt-Zv-apf" id="4Ox-7o-TBo"/>
+                                            <outlet property="likeBtn" destination="txp-Vh-ai0" id="LoA-vt-RtA"/>
+                                            <outlet property="likeImgView" destination="EMV-8E-o2s" id="iDv-7o-wSL"/>
+                                            <outlet property="likesLbl" destination="Uzz-ws-4fy" id="35w-VB-dnr"/>
+                                            <outlet property="postPhotoImgView" destination="O3J-r3-CkL" id="WYL-Lq-8oh"/>
+                                            <outlet property="shareBtn" destination="X01-OV-4NY" id="8sb-Yk-DX2"/>
+                                            <outlet property="timeLbl" destination="bba-Bq-mT4" id="arT-Rm-xdK"/>
+                                            <outlet property="userPhotoImgView" destination="BX3-WM-2u7" id="poC-6A-nHg"/>
+                                            <outlet property="viewAllCommentsBtn" destination="0a7-8z-LbC" id="JZE-fT-neO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
