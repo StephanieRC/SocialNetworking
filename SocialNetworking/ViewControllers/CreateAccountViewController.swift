@@ -26,7 +26,8 @@ class CreateAccountViewController: MRKBaseViewController, UITableViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         imgUiView.layer.cornerRadius = imgUiView.frame.size.width/2
-        //profilePicImgView.clipsToBounds = true
+        profilePicImgView.layer.cornerRadius = imgUiView.frame.size.width/2
+        profilePicImgView.clipsToBounds = true
         imgPicker.delegate = self
         locationmanager.requestWhenInUseAuthorization()
         locationmanager.delegate = self
@@ -96,6 +97,7 @@ class CreateAccountViewController: MRKBaseViewController, UITableViewDelegate, U
                     DispatchQueue.main.async {
                         self.navigationController?.popViewController(animated: true)
                     }
+                    
                 }
             }
         }

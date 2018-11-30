@@ -760,7 +760,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mf1-1y-oNJ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Gs8-Cr-bmH">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="179"/>
@@ -797,26 +797,6 @@
                                     <constraints>
                                         <constraint firstItem="JFs-RB-2Di" firstAttribute="top" secondItem="Gs8-Cr-bmH" secondAttribute="top" constant="8" id="KYo-AH-bvb"/>
                                         <constraint firstItem="JFs-RB-2Di" firstAttribute="centerX" secondItem="Gs8-Cr-bmH" secondAttribute="centerX" id="OVV-te-zOc"/>
-                                    </constraints>
-                                </view>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="7Ah-RF-bhT">
-                                    <rect key="frame" x="0.0" y="295" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Z6-Iz-gbc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <state key="normal" title="Sign Up"/>
-                                            <connections>
-                                                <action selector="signUpBtn:" destination="11P-Jv-HCS" eventType="touchUpInside" id="nVi-xu-oLm"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="0Z6-Iz-gbc" firstAttribute="leading" secondItem="7Ah-RF-bhT" secondAttribute="leading" id="FCS-rD-2KV"/>
-                                        <constraint firstAttribute="bottom" secondItem="0Z6-Iz-gbc" secondAttribute="bottom" id="pbl-nQ-LD9"/>
-                                        <constraint firstItem="0Z6-Iz-gbc" firstAttribute="top" secondItem="7Ah-RF-bhT" secondAttribute="top" id="vnn-yf-Amg"/>
-                                        <constraint firstAttribute="trailing" secondItem="0Z6-Iz-gbc" secondAttribute="trailing" id="zJt-lf-OVE"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -885,28 +865,40 @@
                                     <outlet property="delegate" destination="11P-Jv-HCS" id="xgn-Yk-hO5"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ah-RF-bhT">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Z6-Iz-gbc">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="signUpBtn:" destination="11P-Jv-HCS" eventType="touchUpInside" id="nVi-xu-oLm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="0Z6-Iz-gbc" firstAttribute="leading" secondItem="7Ah-RF-bhT" secondAttribute="leading" id="FCS-rD-2KV"/>
+                                    <constraint firstAttribute="height" constant="44" id="cy4-nx-T9e"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Z6-Iz-gbc" secondAttribute="bottom" id="pbl-nQ-LD9"/>
+                                    <constraint firstItem="0Z6-Iz-gbc" firstAttribute="top" secondItem="7Ah-RF-bhT" secondAttribute="top" id="vnn-yf-Amg"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Z6-Iz-gbc" secondAttribute="trailing" id="zJt-lf-OVE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Mf1-1y-oNJ" firstAttribute="leading" secondItem="Isd-Gw-d76" secondAttribute="leading" id="0Ir-k9-6Zc"/>
-                            <constraint firstItem="Isd-Gw-d76" firstAttribute="trailing" secondItem="Mf1-1y-oNJ" secondAttribute="trailing" id="4a1-Vz-ce5"/>
-                            <constraint firstItem="Isd-Gw-d76" firstAttribute="bottom" secondItem="Mf1-1y-oNJ" secondAttribute="bottom" id="Aud-Hs-RrX"/>
-                            <constraint firstItem="Isd-Gw-d76" firstAttribute="bottom" secondItem="Mf1-1y-oNJ" secondAttribute="bottom" id="EXC-pu-UYt"/>
-                            <constraint firstItem="Mf1-1y-oNJ" firstAttribute="top" secondItem="Isd-Gw-d76" secondAttribute="top" id="Efa-22-Eqy"/>
-                            <constraint firstItem="Mf1-1y-oNJ" firstAttribute="top" secondItem="Isd-Gw-d76" secondAttribute="top" id="K29-2v-a68"/>
+                            <constraint firstItem="7Ah-RF-bhT" firstAttribute="bottom" secondItem="Isd-Gw-d76" secondAttribute="bottom" id="1Kn-wP-c6F"/>
+                            <constraint firstItem="7Ah-RF-bhT" firstAttribute="top" secondItem="Mf1-1y-oNJ" secondAttribute="bottom" id="1Xu-AM-isN"/>
+                            <constraint firstItem="Mf1-1y-oNJ" firstAttribute="trailing" secondItem="Isd-Gw-d76" secondAttribute="trailing" id="2nX-Ro-c3b"/>
+                            <constraint firstItem="Mf1-1y-oNJ" firstAttribute="top" secondItem="Isd-Gw-d76" secondAttribute="top" id="Lhs-CY-TAu"/>
                             <constraint firstItem="HWe-N9-ILi" firstAttribute="top" secondItem="yYG-wU-NmU" secondAttribute="top" id="VCT-FB-AcO"/>
-                            <constraint firstItem="Mf1-1y-oNJ" firstAttribute="leading" secondItem="Isd-Gw-d76" secondAttribute="leading" id="aCC-3J-FGp"/>
-                            <constraint firstItem="Mf1-1y-oNJ" firstAttribute="leading" secondItem="Isd-Gw-d76" secondAttribute="leading" id="eOQ-rr-o7l"/>
-                            <constraint firstItem="Isd-Gw-d76" firstAttribute="trailing" secondItem="Mf1-1y-oNJ" secondAttribute="trailing" id="f36-xi-BJX"/>
-                            <constraint firstItem="Isd-Gw-d76" firstAttribute="bottom" secondItem="Mf1-1y-oNJ" secondAttribute="bottom" id="ghx-lV-s2b"/>
-                            <constraint firstItem="Isd-Gw-d76" firstAttribute="trailing" secondItem="Mf1-1y-oNJ" secondAttribute="trailing" id="hrI-cN-z1o"/>
-                            <constraint firstItem="Mf1-1y-oNJ" firstAttribute="top" secondItem="Isd-Gw-d76" secondAttribute="top" id="mVq-vj-Tpy"/>
-                            <constraint firstItem="Isd-Gw-d76" firstAttribute="trailing" secondItem="Mf1-1y-oNJ" secondAttribute="trailing" id="pyi-xg-t1Y"/>
+                            <constraint firstItem="7Ah-RF-bhT" firstAttribute="trailing" secondItem="Isd-Gw-d76" secondAttribute="trailing" id="Xbr-zT-o57"/>
+                            <constraint firstItem="7Ah-RF-bhT" firstAttribute="leading" secondItem="Isd-Gw-d76" secondAttribute="leading" id="dhu-lL-kp8"/>
+                            <constraint firstItem="Mf1-1y-oNJ" firstAttribute="leading" secondItem="Isd-Gw-d76" secondAttribute="leading" id="iDN-w3-RIN"/>
                             <constraint firstItem="HWe-N9-ILi" firstAttribute="leading" secondItem="yYG-wU-NmU" secondAttribute="leading" id="rRm-UG-NKa"/>
-                            <constraint firstItem="Mf1-1y-oNJ" firstAttribute="leading" secondItem="Isd-Gw-d76" secondAttribute="leading" id="tTP-AH-vkM"/>
                             <constraint firstItem="Isd-Gw-d76" firstAttribute="bottom" secondItem="HWe-N9-ILi" secondAttribute="bottom" id="uZV-wm-LaZ"/>
                             <constraint firstItem="HWe-N9-ILi" firstAttribute="trailing" secondItem="Isd-Gw-d76" secondAttribute="trailing" id="w6D-9F-zmZ"/>
-                            <constraint firstItem="Isd-Gw-d76" firstAttribute="bottom" secondItem="Mf1-1y-oNJ" secondAttribute="bottom" id="zst-n2-FZF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Isd-Gw-d76"/>
                     </view>

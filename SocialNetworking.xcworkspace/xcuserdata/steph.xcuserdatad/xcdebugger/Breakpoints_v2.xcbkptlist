@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SocialNetworking/ViewControllers/MapGoogleViewController.swift"
-            timestampString = "565249602.867318"
+            timestampString = "565250644.023048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
@@ -232,7 +232,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SocialNetworking/ViewControllers/MapGoogleViewController.swift"
-            timestampString = "565249602.867776"
+            timestampString = "565250644.0231301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -248,11 +248,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SocialNetworking/ViewControllers/CreateAccountViewController.swift"
-            timestampString = "565249602.868075"
+            timestampString = "565250644.023194"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "locationManager(_:didUpdateLocations:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -264,11 +264,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SocialNetworking/ViewControllers/CreateAccountViewController.swift"
-            timestampString = "565249602.868136"
+            timestampString = "565250644.023646"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "locationManager(_:didUpdateLocations:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -280,71 +280,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SocialNetworking/ViewControllers/CreateAccountViewController.swift"
-            timestampString = "565249602.868194"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "signUpBtn(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SocialNetworking/ViewControllers/CreateAccountViewController.swift"
-            timestampString = "565249602.868251"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "signUpBtn(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SocialNetworking.CreateAccountViewController.signUpBtn(__C.UIButton) -&gt; ()"
-                  moduleName = "SocialNetworking"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/steph/Documents/SocialNetworking/SocialNetworking/ViewControllers/CreateAccountViewController.swift"
-                  timestampString = "565246043.720086"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "9221">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in SocialNetworking.CreateAccountViewController.signUpBtn(__C.UIButton) -&gt; ()"
-                  moduleName = "SocialNetworking"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/steph/Documents/SocialNetworking/SocialNetworking/ViewControllers/CreateAccountViewController.swift"
-                  timestampString = "565246043.7240601"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "93"
-                  endingLineNumber = "93"
-                  offsetFromSymbolStart = "194">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SocialNetworking/ViewControllers/CreateAccountViewController.swift"
-            timestampString = "565249602.868307"
+            timestampString = "565250644.023957"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
@@ -360,7 +296,71 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SocialNetworking/ViewControllers/CreateAccountViewController.swift"
-            timestampString = "565249602.868364"
+            timestampString = "565250644.024268"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "signUpBtn(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SocialNetworking.CreateAccountViewController.signUpBtn(__C.UIButton) -&gt; ()"
+                  moduleName = "SocialNetworking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/steph/Documents/SocialNetworking/SocialNetworking/ViewControllers/CreateAccountViewController.swift"
+                  timestampString = "565250644.331767"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "9221">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in SocialNetworking.CreateAccountViewController.signUpBtn(__C.UIButton) -&gt; ()"
+                  moduleName = "SocialNetworking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/steph/Documents/SocialNetworking/SocialNetworking/ViewControllers/CreateAccountViewController.swift"
+                  timestampString = "565250644.3353209"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "194">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SocialNetworking/ViewControllers/CreateAccountViewController.swift"
+            timestampString = "565250644.0245709"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "signUpBtn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SocialNetworking/ViewControllers/CreateAccountViewController.swift"
+            timestampString = "565250644.024877"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
