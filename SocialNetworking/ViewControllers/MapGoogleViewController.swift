@@ -27,6 +27,9 @@ class MapGoogleViewController: UIViewController, GMSMapViewDelegate {
     }
     
 
+    @IBAction func backBarBtn(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         
@@ -56,7 +59,6 @@ class MapGoogleViewController: UIViewController, GMSMapViewDelegate {
             let coordinateLatitude = Double(user.lat)
             let coordinateLongitude = Double(user.lon)
             let location = CLLocation(latitude: coordinateLatitude ?? 0.0, longitude: coordinateLongitude ?? 0.0)
-            // let smallImage = UIImage().resizeimage(image: user.img!, withSize: CGSize(width: 40.0, height: 40.0))
             
             DispatchQueue.main.async {
                 let marker = GMSMarker()

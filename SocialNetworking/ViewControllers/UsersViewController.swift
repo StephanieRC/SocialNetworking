@@ -81,7 +81,7 @@ class UsersViewController: UIViewController, UISearchResultsUpdating, UITableVie
     @IBAction func mapBtn(_ sender: UIBarButtonItem) {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "userMapViewController") as? MapGoogleViewController{
             controller.userArr = userKeys
-            navigationController?.pushViewController(controller, animated: true)
+            present(controller, animated: true)
         }
     }
 }

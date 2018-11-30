@@ -13,6 +13,7 @@
 		9722BFF921AF217E008C3D31 /* MapGoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9722BFF821AF217D008C3D31 /* MapGoogleViewController.swift */; };
 		9722BFFB21B08121008C3D31 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9722BFFA21B08121008C3D31 /* AddPostViewController.swift */; };
 		9722BFFD21B08868008C3D31 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9722BFFC21B08868008C3D31 /* HomeViewController.swift */; };
+		9722BFFF21B09824008C3D31 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9722BFFE21B09824008C3D31 /* Post.swift */; };
 		9723B92E219F51F900DAD4BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723B92D219F51F900DAD4BE /* AppDelegate.swift */; };
 		9723B930219F51F900DAD4BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9723B92F219F51F900DAD4BE /* ViewController.swift */; };
 		9723B933219F51F900DAD4BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9723B931219F51F900DAD4BE /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		9722BFF821AF217D008C3D31 /* MapGoogleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGoogleViewController.swift; sourceTree = "<group>"; };
 		9722BFFA21B08121008C3D31 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		9722BFFC21B08868008C3D31 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9722BFFE21B09824008C3D31 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		9723B92A219F51F900DAD4BE /* SocialNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9723B92D219F51F900DAD4BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9723B92F219F51F900DAD4BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9722C00021B0982E008C3D31 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9722BFFE21B09824008C3D31 /* Post.swift */,
+				97D0BF0D21A4934800592A70 /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		9723B921219F51F800DAD4BE = {
 			isa = PBXGroup;
 			children = (
@@ -121,8 +132,8 @@
 				97CEDADB21ADF31800B5808D /* TableViewCells */,
 				97CEDADA21ADF28600B5808D /* ViewControllers */,
 				9723B931219F51F900DAD4BE /* Main.storyboard */,
+				9722C00021B0982E008C3D31 /* Models */,
 				97CEDAD121AC966B00B5808D /* ImageExtension.swift */,
-				97D0BF0D21A4934800592A70 /* UserModel.swift */,
 				97CEDAD721ADEB3200B5808D /* GoogleService-Info.plist */,
 				9723B937219F51FC00DAD4BE /* Assets.xcassets */,
 				9723B939219F51FC00DAD4BE /* LaunchScreen.storyboard */,
@@ -362,6 +373,7 @@
 				97D0BF1021A49D3E00592A70 /* UsersTableViewCell.swift in Sources */,
 				9723B92E219F51F900DAD4BE /* AppDelegate.swift in Sources */,
 				97D0BF0C21A4865B00592A70 /* UsersViewController.swift in Sources */,
+				9722BFFF21B09824008C3D31 /* Post.swift in Sources */,
 				97952CC421A470E700D3ACA7 /* MRKBaseViewController.swift in Sources */,
 				97CEDAD021AC72C300B5808D /* SettingsViewController.swift in Sources */,
 				97D0BF0E21A4934800592A70 /* UserModel.swift in Sources */,

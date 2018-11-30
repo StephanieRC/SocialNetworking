@@ -14,6 +14,8 @@ class ImageProfileTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        imgView.layer.cornerRadius = imgView.frame.size.width/2
+        imgView.clipsToBounds = true
         // Initialization code
     }
 

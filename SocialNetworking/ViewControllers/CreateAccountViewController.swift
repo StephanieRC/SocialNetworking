@@ -12,6 +12,7 @@ import CoreLocation
 
 class CreateAccountViewController: MRKBaseViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate{
     
+    @IBOutlet weak var imgUiView: UIView!
     @IBOutlet weak var profilePicImgView: UIImageView!
     @IBOutlet weak var tblView: UITableView!
     let imgPicker = UIImagePickerController()
@@ -24,6 +25,8 @@ class CreateAccountViewController: MRKBaseViewController, UITableViewDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imgUiView.layer.cornerRadius = imgUiView.frame.size.width/2
+        //profilePicImgView.clipsToBounds = true
         imgPicker.delegate = self
         locationmanager.requestWhenInUseAuthorization()
         locationmanager.delegate = self

@@ -20,10 +20,9 @@ class SettingsViewController: UIViewController{
     }
     
     @IBAction func logoutBtn(_ sender: UIButton) {
-        do{
-            try Auth.auth().signOut()
-        }catch{
-            
-        }
+        FirebaseHandler.shared.signOut()
+        let mainStoreBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = mainStoreBoard.instantiateViewController(withIdentifier: "SignInViewController")
+        UIApplication.shared.keyWindow?.rootViewController = controller
     }
 }

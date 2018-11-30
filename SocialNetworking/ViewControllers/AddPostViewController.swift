@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import TWMessageBarManager
+import SVProgressHUD
 
 class AddPostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -24,6 +26,17 @@ class AddPostViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func addBarBtn(_ sender: UIBarButtonItem) {
+        SVProgressHUD.show()
+        FirebaseHandler.shared.addPost(img: imgView.image!, description: descriptionTextView.text) { (err) in
+            DispatchQueue.main.async{
+                SVProgressHUD.dismiss()
+            }
+            if err == nil{
+                self.dismiss(animated: true)
+            }else{
+                TWMessageBarManager.sharedInstance().showMessage(withTitle: "Error", description: err?.localizedDescription, type: .error)
+            }
+        }
     }
     
     

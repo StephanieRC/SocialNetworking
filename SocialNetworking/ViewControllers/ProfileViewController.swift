@@ -22,6 +22,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         imgpicker.delegate = self
+        imgView.layer.cornerRadius = imgView.frame.size.width/2
+        imgView.clipsToBounds = true
         FirebaseHandler.shared.fetchTheData(uid: uid){
             (userdata) in
             DispatchQueue.main.async {

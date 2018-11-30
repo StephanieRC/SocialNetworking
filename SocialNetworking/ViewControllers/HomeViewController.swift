@@ -18,7 +18,8 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func addPostBtn(_ sender: UIBarButtonItem) {
-        //present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
-        performSegue(withIdentifier: "AddPostSegue", sender: nil)
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "AddPostViewController") as? AddPostViewController{
+            present(controller, animated: true)
+        }
     }
 }

@@ -21,7 +21,8 @@ typealias completionHandler = ([User]?) ->()
 
 class FirebaseHandler {
     
-    var ref: DatabaseReference! = Database.database().reference().child("USERS")
+    var userRef: DatabaseReference! = Database.database().reference().child("USERS")
+    var postRef: DatabaseReference! = Database.database().reference().child("POSTS")
     var storageref: StorageReference! = Storage.storage().reference()
     
     static let shared = FirebaseHandler()
@@ -37,7 +38,7 @@ class FirebaseHandler {
     func updateUserInfo(phone:String, email: String, address: String, city: String, completion: @escaping (Error?) ->()){
         if let user = Auth.auth().currentUser
         {
-            self.ref.child(user.uid).updateChildValues(["email": email, "phoneNum": phone, "address": address, "city": city]){
+            self.userRef.child(user.uid).updateChildValues(["email": email, "phoneNum": phone, "address": address, "city": city]){
                 (err, reference) in
                 if err == nil{
                     completion(nil)
@@ -49,15 +50,15 @@ class FirebaseHandler {
     }
     
     func uploadImg(image: UIImage){
-            let data = image.jpeg(UIImage.JPEGQuality.lowest)
-            let metaData = StorageMetadata()
-            metaData.contentType = "image/png"
-            let id = Auth.auth().currentUser?.uid
-            let imagename = "UserImages/\(id!)"
-            storageref.child(imagename).putData(data!, metadata: metaData){
-                (metaDataS, err) in
-                print("upload pic")
-            }
+        let data = image.jpeg(UIImage.JPEGQuality.lowest)
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/png"
+        let id = Auth.auth().currentUser?.uid
+        let imagename = "UserImages/\(id!)"
+        storageref.child(imagename).putData(data!, metadata: metaData){
+            (metaDataS, err) in
+            print("upload pic")
+        }
         
     }
     
@@ -94,7 +95,7 @@ class FirebaseHandler {
     }
     
     func addFriend(friendId : String, userid: String, completion : @escaping (String) -> ()) {
-        ref.child(userid).child("friends").updateChildValues([friendId: "friendId"]) { (err, dbref) in
+        userRef.child(userid).child("friends").updateChildValues([friendId: "friendId"]) { (err, dbref) in
             if err == nil{
                 completion("You have a friend!")
             }else{
@@ -104,7 +105,7 @@ class FirebaseHandler {
     }
     
     func addCoor(lat : String, lon: String, completion : @escaping (Error?) -> ()) {
-        ref.child(getCurrentUid()).child("friends").updateChildValues(["lat": lat, "lon": lon]) { (err, dbref) in
+        userRef.child(getCurrentUid()).child("friends").updateChildValues(["lat": lat, "lon": lon]) { (err, dbref) in
             if err == nil{
                 completion(nil)
             }else{
@@ -114,7 +115,7 @@ class FirebaseHandler {
     }
     
     func removeFriend(friendId : String, userid: String, completion : @escaping (String) -> ()) {
-        ref.child(userid).child("friends").child(friendId).removeValue { (err, dbref) in
+        userRef.child(userid).child("friends").child(friendId).removeValue { (err, dbref) in
             if err == nil{
                 completion("Friend is no longer")
             }else{
@@ -166,15 +167,15 @@ class FirebaseHandler {
             if err == nil{
                 dispatchgroup.enter()
                 guard let user = result?.user else {return}
-                self.ref.child(user.uid).setValue(["name": name, "displayName": displayName, "email": email, "birthdate": birthdate, "address": address, "city": city, "state": state, "country": country, "zipcode": zipcode, "language": language, "phoneNum": phoneNum],
-                                                  withCompletionBlock:{
-                                                    (err, self) in
-                                                    if let err = err {
-                                                        print("Data could not be saved: \(err).")
-                                                    } else {
-                                                        print("Data saved successfully!")
-                                                    }
-                                                    
+                self.userRef.child(user.uid).setValue(["name": name, "displayName": displayName, "email": email, "birthdate": birthdate, "address": address, "city": city, "state": state, "country": country, "zipcode": zipcode, "language": language, "phoneNum": phoneNum],
+                                                      withCompletionBlock:{
+                                                        (err, self) in
+                                                        if let err = err {
+                                                            print("Data could not be saved: \(err).")
+                                                        } else {
+                                                            print("Data saved successfully!")
+                                                        }
+                                                        
                 })
                 self.uploadImg(image: img)
                 self.addCoor(lat: lat, lon: lon, completion: { (err) in
@@ -184,9 +185,9 @@ class FirebaseHandler {
                         print(err?.localizedDescription)
                     }
                 })
-//                dispatchgroup.leave()
+                //                dispatchgroup.leave()
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "Sucessfully created new user", type: .success)
-//                completion(nil)
+                //                completion(nil)
             }else
             {
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Error", description: err?.localizedDescription, type: .error)
@@ -199,7 +200,7 @@ class FirebaseHandler {
     }
     
     func fetchTheData(uid: String, completion: @escaping (User?) ->()){
-        ref.child(uid).observeSingleEvent(of: .value)
+        userRef.child(uid).observeSingleEvent(of: .value)
         {(Snapchat) in
             if let dict = Snapchat.value as? [String: Any]{
                 let coor = dict["coordinate"] as? [String: String]
@@ -215,11 +216,11 @@ class FirebaseHandler {
     func retrieveFriendList(completion: @escaping ([User]?)->()){
         var friendArr: [User] = []
         let dispatchgroup = DispatchGroup()
-        ref.child(getCurrentUid()).child("friends").observeSingleEvent(of: .value, with: { (snapshot) in
+        userRef.child(getCurrentUid()).child("friends").observeSingleEvent(of: .value, with: { (snapshot) in
             if let friends = snapshot.value as? [String: String]{
                 for friend in friends{
                     dispatchgroup.enter()
-                    self.ref.child(friend.key).observeSingleEvent(of: .value, with: { (singleFriendSnapShot) in
+                    self.userRef.child(friend.key).observeSingleEvent(of: .value, with: { (singleFriendSnapShot) in
                         guard let singleFriend = singleFriendSnapShot.value as? Dictionary<String, Any> else{
                             return
                         }
@@ -243,7 +244,7 @@ class FirebaseHandler {
     
     func retrieveFriendUID(completion: @escaping ([String])->()) {
         var friendUidArr: [String] = []
-        ref.child(getCurrentUid()).child("friends").observeSingleEvent(of: .value) { (ds) in
+        userRef.child(getCurrentUid()).child("friends").observeSingleEvent(of: .value) { (ds) in
             if let friendsuids = ds.value as? [String: String]{
                 for frienduid in friendsuids{
                     friendUidArr.append(frienduid.key)
@@ -263,7 +264,7 @@ class FirebaseHandler {
             let fetchUserGroup = DispatchGroup()
             let fetchUserComponentsGroup = DispatchGroup()
             fetchUserGroup.enter()
-            self.ref?.observeSingleEvent(of: .value){
+            self.userRef?.observeSingleEvent(of: .value){
                 (snapshot) in
                 if let user = snapshot.value as? [String: [String: Any]]{
                     for u in user{
@@ -293,6 +294,64 @@ class FirebaseHandler {
                 }
             }
         }
+    }
+    
+    func addPost(img: UIImage, description:String, completion: @escaping (Error?)->()){
+        let postKey = postRef.childByAutoId().key
+        let dg = DispatchGroup()
+        postRef.child(postKey!).setValue(["description": description,
+                                          "like": 0,
+                                          "timestamp": NSDate().timeIntervalSince1970,
+                                          "userId": getCurrentUid()],
+                                         withCompletionBlock:{
+                                            (err, selfRef) in
+                                            if err == nil {
+                                                dg.enter()
+                                                self.addPostStorage(img: img, postKey: postKey!, completion: { (err) in
+                                                    if err == nil{
+                                                        dg.leave()
+                                                    }else{
+                                                        completion(err)
+                                                    }
+                                                })
+                                                dg.enter()
+                                                self.addPostRefCurrentUser(postKey: postKey ?? "", completion: { (err) in
+                                                    if err == nil{
+                                                        dg.leave()
+                                                    }else{
+                                                        completion(err)
+                                                    }
+                                                })
+                                                dg.notify(queue: .main){
+                                                    print("Print hopefully once!")
+                                                    completion(nil)
+                                                }
+                                            } else {
+                                                completion(err)
+                                                print("Data could not be saved: \(err).")
+                                            }
+                                            
+        })
         
+    }
+    
+    func addPostRefCurrentUser(postKey:String, completion: @escaping (Error?)->()){
+        userRef.child(getCurrentUid()).child("posts").updateChildValues([postKey: "postKey"]) { (err, dbref) in
+            completion(err)
+        }
+    }
+    
+    func addPostStorage(img: UIImage, postKey: String, completion: @escaping (Error?)->()){
+        let data = img.jpeg(UIImage.JPEGQuality.lowest)
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/png"
+        let imagename = "Posts/\(postKey)"
+        storageref.child(imagename).putData(data!, metadata: metaData) { (storMetaData, err) in
+            if err == nil{
+                completion(nil)
+            }else{
+                completion(err)
+            }
+        }
     }
 }
