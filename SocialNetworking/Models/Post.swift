@@ -24,6 +24,6 @@ struct PostDetail {
     var postUserImage : UIImage?
     var name : String?
     var isLike : Bool
-    var likeby : [String : String]
+    var likeby : [String]
     var commentby : [String : String]
 }

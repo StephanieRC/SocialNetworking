@@ -105,7 +105,7 @@ class FirebaseHandler {
     }
     
     func addCoor(lat : String, lon: String, completion : @escaping (Error?) -> ()) {
-        userRef.child(getCurrentUid()).child("friends").updateChildValues(["lat": lat, "lon": lon]) { (err, dbref) in
+        userRef.child(getCurrentUid()).child("coordinate").updateChildValues(["lat": lat, "lon": lon]) { (err, dbref) in
             if err == nil{
                 completion(nil)
             }else{
@@ -354,4 +354,96 @@ class FirebaseHandler {
             }
         }
     }
+    
+    func retrievePostDetails(completion: @escaping ([PostDetail])->()){
+        let dg = DispatchGroup()
+        let postDg = DispatchGroup()
+        var postDetailArr: [PostDetail] = []
+        retrievePostIds { (postIds) in
+            for postId in postIds{
+                postDg.enter()
+                self.postRef.child(postId).observeSingleEvent(of: .value, with: { (ds) in
+                    if let dsPost = ds.value as? [String: Any]{
+                        var post: PostDetail = PostDetail(description: dsPost["description"] as? String ?? "",
+                                                          imageRef: ds.key,
+                                                          like: dsPost["like"] as? Int ?? 100,
+                                                          timestamp: dsPost["timestamp"] as? Double ?? 0.0,
+                                                          userId: dsPost["userId"] as? String ?? "",
+                                                          postImage: nil,
+                                                          postUserImage: nil,
+                                                          name: nil,
+                                                          isLike: false,
+                                                          likeby: dsPost["likeBy"] as? [String] ?? [],
+                                                          commentby: dsPost["commentBy"] as? [String: String] ?? [:])
+                        post.isLike = post.likeby.contains(self.getCurrentUid())
+                        dg.enter()
+                        self.retrieveDisplayNameUser(userId: post.userId, completion: { (displayName) in
+                            post.name = displayName
+                            dg.leave()
+                        })
+                        dg.enter()
+                        self.downloadAnyUserImg(uid: post.userId, completion: { (img, err) in
+                            if err == nil {
+                                post.postUserImage = img
+                            }
+                            dg.leave()
+                        })
+                        dg.enter()
+                        self.retrievePostPhoto(postKey: post.imageRef, completion: { (img, err) in
+                            if err == nil {
+                                post.postImage = img
+                            }
+                            dg.leave()
+                        })
+                        dg.notify(queue: .main){
+                            postDetailArr.append(post)
+                            postDg.leave()
+                        }
+                    }
+                })
+            }
+            postDg.notify(queue: .main){
+                completion(postDetailArr)
+            }
+        }
+    }
+    
+    func retrieveDisplayNameUser(userId: String, completion:@escaping (String)->()){
+        userRef.child(userId).child("displayName").observeSingleEvent(of: .value) { (ds) in
+            completion(ds.value as? String ?? "")
+        }
+    }
+    
+    func retrievePostPhoto(postKey: String, completion: @escaping (UIImage?, Error?)->()){
+        storageref.child("posts").child(postKey).getData(maxSize: 600*600*600) { (data, err) in
+            if err == nil{
+                let img = UIImage(data: data!)
+                completion(img, nil)
+            }
+            completion(nil, err)
+        }
+    }
+    
+    func retrievePostIds(completion: @escaping ([String])->()){
+        var postIds: [String] = []
+        let dg = DispatchGroup()
+        userRef.observeSingleEvent(of: .value) { (friendUidArr) in
+            let userUids = friendUidArr.value as? [String: [String: Any]]
+            for userUid in userUids ?? [:]{
+                dg.enter()
+                self.userRef.child(userUid.key).child("posts").observeSingleEvent(of: .value, with: { (ds) in
+                    if let posts = ds.value as? [String: String]{
+                        for post in posts ?? [:]{
+                            postIds.append(post.key)
+                        }
+                    }
+                    dg.leave()
+                })
+            }
+            dg.notify(queue: .main, execute: {
+                completion(postIds)
+            })
+        }
+    }
+    
 }

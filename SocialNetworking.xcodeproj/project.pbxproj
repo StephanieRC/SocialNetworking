@@ -32,6 +32,7 @@
 		97D0BF0C21A4865B00592A70 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0BF0B21A4865B00592A70 /* UsersViewController.swift */; };
 		97D0BF0E21A4934800592A70 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0BF0D21A4934800592A70 /* UserModel.swift */; };
 		97D0BF1021A49D3E00592A70 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0BF0F21A49D3E00592A70 /* UsersTableViewCell.swift */; };
+		97F9C4B021B1E3150001E138 /* PostDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9C4AF21B1E3150001E138 /* PostDetailTableViewCell.swift */; };
 		F20B166AAD782B1CC81B7042 /* Pods_SocialNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BFF0396BEA3633D6F8F766 /* Pods_SocialNetworking.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		97D0BF0B21A4865B00592A70 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		97D0BF0D21A4934800592A70 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		97D0BF0F21A49D3E00592A70 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
+		97F9C4AF21B1E3150001E138 /* PostDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewCell.swift; sourceTree = "<group>"; };
 		A4D37ACF483ED0F05D3FCC0F /* Pods-SocialNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworking/Pods-SocialNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				971A75AD21A5261E0038D58B /* TextFieldTableViewCell.swift */,
+				97F9C4AF21B1E3150001E138 /* PostDetailTableViewCell.swift */,
 				97D0BF0F21A49D3E00592A70 /* UsersTableViewCell.swift */,
 				971A75AB21A50FB10038D58B /* ImageProfileTableViewCell.swift */,
 				97CEDAD321AD14D400B5808D /* FriendListTableViewCell.swift */,
@@ -373,6 +376,7 @@
 				97D0BF1021A49D3E00592A70 /* UsersTableViewCell.swift in Sources */,
 				9723B92E219F51F900DAD4BE /* AppDelegate.swift in Sources */,
 				97D0BF0C21A4865B00592A70 /* UsersViewController.swift in Sources */,
+				97F9C4B021B1E3150001E138 /* PostDetailTableViewCell.swift in Sources */,
 				9722BFFF21B09824008C3D31 /* Post.swift in Sources */,
 				97952CC421A470E700D3ACA7 /* MRKBaseViewController.swift in Sources */,
 				97CEDAD021AC72C300B5808D /* SettingsViewController.swift in Sources */,
