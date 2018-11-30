@@ -445,5 +445,4 @@ class FirebaseHandler {
             })
         }
     }
-    
 }
