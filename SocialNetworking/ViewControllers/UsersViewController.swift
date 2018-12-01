@@ -64,7 +64,6 @@ class UsersViewController: UIViewController, UISearchResultsUpdating, UITableVie
     @objc func addFriendClicked(_ sender: UIButton){
         let user = userKeys[sender.tag].user
         FirebaseHandler.shared.addFriend(friendId: user.id, userid: (Auth.auth().currentUser?.uid)!) { (friendMsg) in
-            print(friendMsg)
             self.loadUsers()
         }
     }
@@ -72,7 +71,6 @@ class UsersViewController: UIViewController, UISearchResultsUpdating, UITableVie
     @objc func removeFriendClicked(_ sender: UIButton){
         let user = userKeys[sender.tag].user
         FirebaseHandler.shared.removeFriend(friendId: user.id, userid: (Auth.auth().currentUser?.uid)!) { (friendMsg) in
-            print(friendMsg)
             self.loadUsers()
         }
     }

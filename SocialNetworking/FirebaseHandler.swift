@@ -204,7 +204,23 @@ class FirebaseHandler {
         {(Snapchat) in
             if let dict = Snapchat.value as? [String: Any]{
                 let coor = dict["coordinate"] as? [String: String]
-                let usermodel: User = User.init(id: uid, displayName: dict["displayName"] as? String ?? "", email: dict["email"] as? String ?? "", name:dict["name"] as? String ?? "", phoneNum: dict["phoneNum"] as? String ?? "", language: dict["language"] as? String ?? "", birthdate: dict["birthdate"] as? String ?? "", address: dict["address"] as? String ?? "", city: dict["city"] as? String ?? "", state: dict["state"] as? String ?? "", country: dict["country"] as? String ?? "", zipcode: dict["zipcode"] as? String ?? "", lat: coor?["lat"] ?? "", lon: coor?["lon"] ?? "", img: nil)
+                let postArr = dict["posts"] as? [String: Any]
+                let usermodel: User = User.init(id: uid,
+                                                displayName: dict["displayName"] as? String ?? "",
+                                                email: dict["email"] as? String ?? "",
+                                                name:dict["name"] as? String ?? "",
+                                                phoneNum: dict["phoneNum"] as? String ?? "",
+                                                language: dict["language"] as? String ?? "",
+                                                birthdate: dict["birthdate"] as? String ?? "",
+                                                address: dict["address"] as? String ?? "",
+                                                city: dict["city"] as? String ?? "",
+                                                state: dict["state"] as? String ?? "",
+                                                country: dict["country"] as? String ?? "",
+                                                zipcode: dict["zipcode"] as? String ?? "",
+                                                lat: coor?["lat"] ?? "",
+                                                lon: coor?["lon"] ?? "",
+                                                postCount: postArr?.count ?? 100,
+                                                img: nil)
                 completion(usermodel)
             }else{
                 completion(nil)
@@ -225,7 +241,23 @@ class FirebaseHandler {
                             return
                         }
                         let coor = singleFriend["coordinate"] as? [String: String]
-                        let usermodel: User = User.init(id: friend.key, displayName: singleFriend["displayName"] as? String ?? "", email: singleFriend["email"] as? String ?? "", name: singleFriend["name"] as? String ?? "", phoneNum: singleFriend["phoneNum"] as? String ?? "", language: singleFriend["language"] as? String ?? "", birthdate: singleFriend["birthdate"] as? String ?? "", address: singleFriend["address"] as? String ?? "", city: singleFriend["city"] as? String ?? "", state: singleFriend["state"] as? String ?? "", country: singleFriend["country"] as? String ?? "", zipcode: singleFriend["zipcode"] as? String ?? "", lat: coor?["lat"] ?? "", lon: coor?["lon"] ?? "", img: nil)
+                        let postArr = singleFriend["posts"] as? [String: Any]
+                        let usermodel: User = User.init(id: friend.key,
+                                                        displayName: singleFriend["displayName"] as? String ?? "",
+                                                        email: singleFriend["email"] as? String ?? "",
+                                                        name: singleFriend["name"] as? String ?? "",
+                                                        phoneNum: singleFriend["phoneNum"] as? String ?? "",
+                                                        language: singleFriend["language"] as? String ?? "",
+                                                        birthdate: singleFriend["birthdate"] as? String ?? "",
+                                                        address: singleFriend["address"] as? String ?? "",
+                                                        city: singleFriend["city"] as? String ?? "",
+                                                        state: singleFriend["state"] as? String ?? "",
+                                                        country: singleFriend["country"] as? String ?? "",
+                                                        zipcode: singleFriend["zipcode"] as? String ?? "",
+                                                        lat: coor?["lat"] ?? "",
+                                                        lon: coor?["lon"] ?? "",
+                                                        postCount: postArr?.count ?? 100,
+                                                        img: nil)
                         self.downloadAnyUserImg(uid: usermodel.id, completion: { (img, err) in
                             usermodel.img = img
                             friendArr.append(usermodel)
@@ -269,7 +301,23 @@ class FirebaseHandler {
                 if let user = snapshot.value as? [String: [String: Any]]{
                     for u in user{
                         let coor = u.value["coordinate"] as? [String: String]
-                        let usermodel: User = User.init(id: u.key, displayName: u.value["displayName"] as? String ?? "", email: u.value["email"] as? String ?? "", name: u.value["name"] as? String ?? "", phoneNum: u.value["phoneNum"] as? String ?? "", language: u.value["language"] as? String ?? "", birthdate: u.value["birthdate"] as? String ?? "", address: u.value["address"] as? String ?? "", city: u.value["city"] as? String ?? "", state: u.value["state"] as? String ?? "", country: u.value["country"] as? String ?? "", zipcode: u.value["zipcode"] as? String ?? "", lat: coor?["lat"] ?? "", lon: coor?["lon"] ?? "", img: nil)
+                        let postArr = u.value["posts"] as? [String: Any]
+                        let usermodel: User = User.init(id: u.key,
+                                                        displayName: u.value["displayName"] as? String ?? "",
+                                                        email: u.value["email"] as? String ?? "",
+                                                        name: u.value["name"] as? String ?? "",
+                                                        phoneNum: u.value["phoneNum"] as? String ?? "",
+                                                        language: u.value["language"] as? String ?? "",
+                                                        birthdate: u.value["birthdate"] as? String ?? "",
+                                                        address: u.value["address"] as? String ?? "",
+                                                        city: u.value["city"] as? String ?? "",
+                                                        state: u.value["state"] as? String ?? "",
+                                                        country: u.value["country"] as? String ?? "",
+                                                        zipcode: u.value["zipcode"] as? String ?? "",
+                                                        lat: coor?["lat"] ?? "",
+                                                        lon: coor?["lon"] ?? "",
+                                                        postCount: postArr?.count ?? 100,
+                                                        img: nil)
                         let friend: Bool = friendslist.contains(u.key) ? true: false
                         fetchUserComponentsGroup.enter()
                         self.downloadAnyUserImg(uid: u.key, completion: { (img, err) in
@@ -363,6 +411,61 @@ class FirebaseHandler {
             for postId in postIds{
                 postDg.enter()
                 self.postRef.child(postId).observeSingleEvent(of: .value, with: { (ds) in
+                    if let dsPost = ds.value as? [String: Any]{
+                        var post: PostDetail = PostDetail(description: dsPost["description"] as? String ?? "",
+                                                          imageRef: ds.key,
+                                                          like: dsPost["like"] as? Int ?? 100,
+                                                          timestamp: dsPost["timestamp"] as? Double ?? 0.0,
+                                                          userId: dsPost["userId"] as? String ?? "",
+                                                          postImage: nil,
+                                                          postUserImage: nil,
+                                                          name: nil,
+                                                          isLike: false,
+                                                          likeby: dsPost["likeBy"] as? [String] ?? [],
+                                                          commentby: dsPost["commentBy"] as? [String: String] ?? [:])
+                        post.isLike = post.likeby.contains(self.getCurrentUid())
+                        dg.enter()
+                        self.retrieveDisplayNameUser(userId: post.userId, completion: { (displayName) in
+                            post.name = displayName
+                            dg.leave()
+                        })
+                        dg.enter()
+                        self.downloadAnyUserImg(uid: post.userId, completion: { (img, err) in
+                            if err == nil {
+                                post.postUserImage = img
+                            }
+                            dg.leave()
+                        })
+                        dg.enter()
+                        self.retrievePostPhoto(postKey: post.imageRef, completion: { (img, err) in
+                            if err == nil {
+                                post.postImage = img
+                            }
+                            dg.leave()
+                        })
+                        dg.notify(queue: .main){
+                            postDetailArr.append(post)
+                            postDg.leave()
+                        }
+                    }
+                })
+            }
+            postDg.notify(queue: .main){
+                postDetailArr.sort(){$0.timestamp > $1.timestamp}
+                completion(postDetailArr)
+            }
+        }
+    }
+    
+    func retrievePostsForUser(userid:String, completion: @escaping ([PostDetail])->()){
+        let dg = DispatchGroup()
+        let postDg = DispatchGroup()
+        var postDetailArr: [PostDetail] = []
+         userRef.child(userid).child("posts").observeSingleEvent(of: .value) { (datasnapshot) in
+            let postIds = datasnapshot.value as? [String: Any] ?? [:]
+            for postId in postIds{
+                postDg.enter()
+                self.postRef.child(postId.key).observeSingleEvent(of: .value, with: { (ds) in
                     if let dsPost = ds.value as? [String: Any]{
                         var post: PostDetail = PostDetail(description: dsPost["description"] as? String ?? "",
                                                           imageRef: ds.key,

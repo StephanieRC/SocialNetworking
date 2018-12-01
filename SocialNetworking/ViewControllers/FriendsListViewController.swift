@@ -43,4 +43,11 @@ class FriendsListViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "FriendProfileViewController") as? FriendProfileViewController{
+            controller.user = friendsList[indexPath.row]
+            navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
 }

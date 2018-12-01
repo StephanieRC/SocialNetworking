@@ -25,8 +25,9 @@ class User{
     var img: UIImage?
     var lat: String
     var lon: String
+    var postCount: Int
     
-    init(id: String, displayName: String, email:String, name:String, phoneNum:String, language:String, birthdate: String, address: String, city:String, state:String, country:String, zipcode: String, lat: String, lon: String, img: UIImage?) {
+    init(id: String, displayName: String, email:String, name:String, phoneNum:String, language:String, birthdate: String, address: String, city:String, state:String, country:String, zipcode: String, lat: String, lon: String, postCount:Int, img: UIImage?) {
         self.id = id
         self.displayName = displayName
         self.email = email
@@ -41,6 +42,7 @@ class User{
         self.zipcode = zipcode
         self.lat = lat
         self.lon = lon
+        self.postCount = postCount
         self.img = img
     }
 }

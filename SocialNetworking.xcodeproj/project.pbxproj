@@ -33,6 +33,8 @@
 		97D0BF0E21A4934800592A70 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0BF0D21A4934800592A70 /* UserModel.swift */; };
 		97D0BF1021A49D3E00592A70 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0BF0F21A49D3E00592A70 /* UsersTableViewCell.swift */; };
 		97F9C4B021B1E3150001E138 /* PostDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9C4AF21B1E3150001E138 /* PostDetailTableViewCell.swift */; };
+		97F9C4B221B2F2650001E138 /* PostPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9C4B121B2F2650001E138 /* PostPhotoCollectionViewCell.swift */; };
+		97F9C4B421B2F46B0001E138 /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9C4B321B2F46B0001E138 /* FriendProfileViewController.swift */; };
 		F20B166AAD782B1CC81B7042 /* Pods_SocialNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BFF0396BEA3633D6F8F766 /* Pods_SocialNetworking.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		97D0BF0D21A4934800592A70 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		97D0BF0F21A49D3E00592A70 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		97F9C4AF21B1E3150001E138 /* PostDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewCell.swift; sourceTree = "<group>"; };
+		97F9C4B121B2F2650001E138 /* PostPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		97F9C4B321B2F46B0001E138 /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		A4D37ACF483ED0F05D3FCC0F /* Pods-SocialNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetworking/Pods-SocialNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +153,7 @@
 			children = (
 				97952C9C21A3B7A800D3ACA7 /* ForgotPasswordViewController.swift */,
 				9723B92F219F51F900DAD4BE /* ViewController.swift */,
+				97F9C4B321B2F46B0001E138 /* FriendProfileViewController.swift */,
 				97CEDACF21AC72C300B5808D /* SettingsViewController.swift */,
 				97CEDAD521AD16D900B5808D /* FriendsListViewController.swift */,
 				97952C9E21A4380E00D3ACA7 /* CreateAccountViewController.swift */,
@@ -167,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				971A75AD21A5261E0038D58B /* TextFieldTableViewCell.swift */,
+				97F9C4B121B2F2650001E138 /* PostPhotoCollectionViewCell.swift */,
 				97F9C4AF21B1E3150001E138 /* PostDetailTableViewCell.swift */,
 				97D0BF0F21A49D3E00592A70 /* UsersTableViewCell.swift */,
 				971A75AB21A50FB10038D58B /* ImageProfileTableViewCell.swift */,
@@ -376,6 +382,7 @@
 				97D0BF1021A49D3E00592A70 /* UsersTableViewCell.swift in Sources */,
 				9723B92E219F51F900DAD4BE /* AppDelegate.swift in Sources */,
 				97D0BF0C21A4865B00592A70 /* UsersViewController.swift in Sources */,
+				97F9C4B421B2F46B0001E138 /* FriendProfileViewController.swift in Sources */,
 				97F9C4B021B1E3150001E138 /* PostDetailTableViewCell.swift in Sources */,
 				9722BFFF21B09824008C3D31 /* Post.swift in Sources */,
 				97952CC421A470E700D3ACA7 /* MRKBaseViewController.swift in Sources */,
@@ -385,6 +392,7 @@
 				97CEDAD421AD14D400B5808D /* FriendListTableViewCell.swift in Sources */,
 				97952C9B21A3B03500D3ACA7 /* FirebaseHandler.swift in Sources */,
 				9722BFF921AF217E008C3D31 /* MapGoogleViewController.swift in Sources */,
+				97F9C4B221B2F2650001E138 /* PostPhotoCollectionViewCell.swift in Sources */,
 				9722BFF721AEE9E5008C3D31 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
