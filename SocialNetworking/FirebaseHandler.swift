@@ -403,6 +403,7 @@ class FirebaseHandler {
                 })
             }
             postDg.notify(queue: .main){
+                postDetailArr.sort(){$0.timestamp > $1.timestamp}
                 completion(postDetailArr)
             }
         }

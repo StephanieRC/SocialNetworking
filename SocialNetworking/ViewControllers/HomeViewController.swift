@@ -11,8 +11,17 @@ import UIKit
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var allPosts: [PostDetail] = []
-
     @IBOutlet weak var tblView: UITableView!
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(HomeViewController.handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.red
+        return refreshControl
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         FirebaseHandler.shared.retrievePostDetails { (allPosts) in
@@ -21,6 +30,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tblView.reloadData()
             }
         }
+        tblView.addSubview(self.refreshControl)
     }
 
     @IBAction func addPostBtn(_ sender: UIBarButtonItem) {
@@ -46,16 +56,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell!
     }
     
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        FirebaseHandler.shared.retrievePostDetails { (allPosts) in
+            self.allPosts = allPosts
+            DispatchQueue.main.async {
+                self.tblView.reloadData()
+            }
+        }
+        refreshControl.endRefreshing()
+    }
+    
     @IBAction func unwindToContainerVC(segue: UIStoryboardSegue) {
     }
     
+    /*
+     https://stackoverflow.com/questions/39345101/swift-check-if-a-timestamp-is-yesterday-today-tomorrow-or-x-days-ago
+    */
     func dayDifference(from interval : TimeInterval) -> String
     {
         let calendar = NSCalendar.current
         let date = Date(timeIntervalSince1970: interval)
         if calendar.isDateInYesterday(date) { return "Yesterday" }
         else if calendar.isDateInToday(date) { return "Today" }
-            //else if calendar.isDateInTomorrow(date) { return "Tomorrow" }
         else {
             let startOfNow = calendar.startOfDay(for: Date())
             let startOfTimeStamp = calendar.startOfDay(for: date)
