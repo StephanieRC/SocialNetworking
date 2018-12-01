@@ -415,12 +415,13 @@ class FirebaseHandler {
     }
     
     func retrievePostPhoto(postKey: String, completion: @escaping (UIImage?, Error?)->()){
-        storageref.child("posts").child(postKey).getData(maxSize: 600*600*600) { (data, err) in
-            if err == nil{
+        storageref.child("Posts").child(postKey).getData(maxSize: 600*600*600) { (data, err) in
+            if err == nil && data != nil{
                 let img = UIImage(data: data!)
                 completion(img, nil)
+            }else{
+                completion(nil, err)
             }
-            completion(nil, err)
         }
     }
     

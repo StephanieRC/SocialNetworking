@@ -312,7 +312,7 @@
                   moduleName = "SocialNetworking"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/steph/Documents/SocialNetworking/SocialNetworking/ViewControllers/CreateAccountViewController.swift"
-                  timestampString = "565250644.331767"
+                  timestampString = "565320491.7530611"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
@@ -327,7 +327,7 @@
                   moduleName = "SocialNetworking"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/steph/Documents/SocialNetworking/SocialNetworking/ViewControllers/CreateAccountViewController.swift"
-                  timestampString = "565250644.3353209"
+                  timestampString = "565320491.7576391"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "94"
@@ -366,6 +366,230 @@
             startingLineNumber = "28"
             endingLineNumber = "28"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SocialNetworking/FirebaseHandler.swift"
+            timestampString = "565320747.56598"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "385"
+            endingLineNumber = "385"
+            landmarkName = "retrievePostDetails(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; () in SocialNetworking.FirebaseHandler.retrievePostDetails(completion: (Swift.Array&lt;SocialNetworking.PostDetail&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SocialNetworking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/steph/Documents/SocialNetworking/SocialNetworking/FirebaseHandler.swift"
+                  timestampString = "565320491.781938"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "385"
+                  endingLineNumber = "385"
+                  offsetFromSymbolStart = "4978">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;__C.UIImage&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (__C.FIRDataSnapshot) -&gt; () in closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; () in SocialNetworking.FirebaseHandler.retrievePostDetails(completion: (Swift.Array&lt;SocialNetworking.PostDetail&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SocialNetworking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/steph/Documents/SocialNetworking/SocialNetworking/FirebaseHandler.swift"
+                  timestampString = "565320491.785364"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "367"
+                  endingLineNumber = "367"
+                  offsetFromSymbolStart = "51">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SocialNetworking/FirebaseHandler.swift"
+            timestampString = "565320747.5666879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
+            landmarkName = "retrievePostDetails(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SocialNetworking/FirebaseHandler.swift"
+            timestampString = "565320747.567024"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
+            landmarkName = "retrievePostDetails(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; () in SocialNetworking.FirebaseHandler.retrievePostDetails(completion: (Swift.Array&lt;SocialNetworking.PostDetail&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SocialNetworking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/steph/Documents/SocialNetworking/SocialNetworking/FirebaseHandler.swift"
+                  timestampString = "565320491.801352"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "405"
+                  endingLineNumber = "405"
+                  offsetFromSymbolStart = "1098">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; () in SocialNetworking.FirebaseHandler.retrievePostDetails(completion: (Swift.Array&lt;SocialNetworking.PostDetail&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SocialNetworking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/steph/Documents/SocialNetworking/SocialNetworking/FirebaseHandler.swift"
+                  timestampString = "565320491.8049771"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "361"
+                  endingLineNumber = "361"
+                  offsetFromSymbolStart = "26">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SocialNetworking/FirebaseHandler.swift"
+            timestampString = "565320747.567355"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
+            landmarkName = "retrievePostDetails(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SocialNetworking/FirebaseHandler.swift"
+            timestampString = "565320747.567681"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
+            landmarkName = "retrievePostDetails(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; () in SocialNetworking.FirebaseHandler.retrievePostDetails(completion: (Swift.Array&lt;SocialNetworking.PostDetail&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SocialNetworking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/steph/Documents/SocialNetworking/SocialNetworking/FirebaseHandler.swift"
+                  timestampString = "565320491.823686"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "398"
+                  endingLineNumber = "398"
+                  offsetFromSymbolStart = "5521">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 () -&gt; () in closure #1 (__C.FIRDataSnapshot) -&gt; () in closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; () in SocialNetworking.FirebaseHandler.retrievePostDetails(completion: (Swift.Array&lt;SocialNetworking.PostDetail&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SocialNetworking"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/steph/Documents/SocialNetworking/SocialNetworking/FirebaseHandler.swift"
+                  timestampString = "565320491.828141"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "361"
+                  endingLineNumber = "361"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SocialNetworking/FirebaseHandler.swift"
+            timestampString = "565320747.568002"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
+            landmarkName = "retrievePostDetails(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SocialNetworking/FirebaseHandler.swift"
+            timestampString = "565320747.568318"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "420"
+            endingLineNumber = "420"
+            landmarkName = "retrievePostPhoto(postKey:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SocialNetworking/FirebaseHandler.swift"
+            timestampString = "565320747.568629"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "421"
+            endingLineNumber = "421"
+            landmarkName = "retrievePostPhoto(postKey:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
