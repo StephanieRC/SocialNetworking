@@ -348,7 +348,6 @@ class FirebaseHandler {
         let postKey = postRef.childByAutoId().key
         let dg = DispatchGroup()
         postRef.child(postKey!).setValue(["description": description,
-                                          "like": 0,
                                           "timestamp": NSDate().timeIntervalSince1970,
                                           "userId": getCurrentUid()],
                                          withCompletionBlock:{
@@ -412,17 +411,23 @@ class FirebaseHandler {
                 postDg.enter()
                 self.postRef.child(postId).observeSingleEvent(of: .value, with: { (ds) in
                     if let dsPost = ds.value as? [String: Any]{
+                        let likeStr = dsPost["likeBy"] as? [String: String] ?? [:]
+                        var likebyArr: [String] = []
+                        for like in likeStr{
+                            likebyArr.append(like.key)
+                        }
                         var post: PostDetail = PostDetail(description: dsPost["description"] as? String ?? "",
                                                           imageRef: ds.key,
-                                                          like: dsPost["like"] as? Int ?? 100,
+                                                          like: nil,
                                                           timestamp: dsPost["timestamp"] as? Double ?? 0.0,
                                                           userId: dsPost["userId"] as? String ?? "",
                                                           postImage: nil,
                                                           postUserImage: nil,
                                                           name: nil,
                                                           isLike: false,
-                                                          likeby: dsPost["likeBy"] as? [String] ?? [],
+                                                          likeby: likebyArr,
                                                           commentby: dsPost["commentBy"] as? [String: String] ?? [:])
+                        post.like = post.likeby.count
                         post.isLike = post.likeby.contains(self.getCurrentUid())
                         dg.enter()
                         self.retrieveDisplayNameUser(userId: post.userId, completion: { (displayName) in
@@ -461,7 +466,7 @@ class FirebaseHandler {
         let dg = DispatchGroup()
         let postDg = DispatchGroup()
         var postDetailArr: [PostDetail] = []
-         userRef.child(userid).child("posts").observeSingleEvent(of: .value) { (datasnapshot) in
+        userRef.child(userid).child("posts").observeSingleEvent(of: .value) { (datasnapshot) in
             let postIds = datasnapshot.value as? [String: Any] ?? [:]
             for postId in postIds{
                 postDg.enter()
@@ -469,7 +474,7 @@ class FirebaseHandler {
                     if let dsPost = ds.value as? [String: Any]{
                         var post: PostDetail = PostDetail(description: dsPost["description"] as? String ?? "",
                                                           imageRef: ds.key,
-                                                          like: dsPost["like"] as? Int ?? 100,
+                                                          like: nil,
                                                           timestamp: dsPost["timestamp"] as? Double ?? 0.0,
                                                           userId: dsPost["userId"] as? String ?? "",
                                                           postImage: nil,
@@ -478,6 +483,7 @@ class FirebaseHandler {
                                                           isLike: false,
                                                           likeby: dsPost["likeBy"] as? [String] ?? [],
                                                           commentby: dsPost["commentBy"] as? [String: String] ?? [:])
+                        post.like = post.likeby.count
                         post.isLike = post.likeby.contains(self.getCurrentUid())
                         dg.enter()
                         self.retrieveDisplayNameUser(userId: post.userId, completion: { (displayName) in
@@ -548,6 +554,18 @@ class FirebaseHandler {
             dg.notify(queue: .main, execute: {
                 completion(postIds)
             })
+        }
+    }
+    
+    func setPostLike(postId:String, uid:String, currentlyLiked: Bool, completion: @escaping (Error?)->()){
+        if currentlyLiked == true{
+            postRef.child(postId).child("likeBy").child(uid).removeValue { (err, db) in
+                completion(err)
+            }
+        }else{
+            postRef.child(postId).child("likeBy").updateChildValues([uid: "likes"]) { (err, db) in
+                completion(err)
+            }
         }
     }
 }

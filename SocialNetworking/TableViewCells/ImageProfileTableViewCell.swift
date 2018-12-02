@@ -14,15 +14,11 @@ class ImageProfileTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        imgView.layer.cornerRadius = imgView.frame.size.width/2
-        imgView.clipsToBounds = true
-        // Initialization code
+        imgView = UIImageView().squareToCircle(imgView: imgView)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     @IBAction func selectPhotoBtn(_ sender: UIButton) {

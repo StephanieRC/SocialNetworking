@@ -10,6 +10,5 @@ import UIKit
 
 class PostPhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgView: UIImageView!
-    
     @IBOutlet weak var postBtn: UIButton!
 }

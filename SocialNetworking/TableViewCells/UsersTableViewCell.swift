@@ -16,14 +16,11 @@ class UsersTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        profileImgView.layer.cornerRadius = profileImgView.frame.size.width/2
-        profileImgView.clipsToBounds = true
+        profileImgView = UIImageView().squareToCircle(imgView: profileImgView)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

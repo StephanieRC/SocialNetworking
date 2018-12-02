@@ -17,7 +17,7 @@ struct UserPost {
 struct PostDetail {
     var description : String
     var imageRef : String
-    var like : Int
+    var like : Int?
     var timestamp : Double
     var userId : String
     var postImage : UIImage?

@@ -59,3 +59,15 @@ extension UIImage {
         return resizedimage!
     }
 }
+
+extension UIImageView{
+    func squareToCircle(imgView: UIImageView)->(UIImageView){
+        imgView.layer.cornerRadius = imgView.frame.size.width/2
+        imgView.clipsToBounds = true
+        return imgView
+    }
+}
+
+class IdentifiedButton: UIButton {
+    var postIdentifier: Int?
+}

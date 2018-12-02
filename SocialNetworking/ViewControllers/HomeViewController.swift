@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var allPosts: [PostDetail] = []
     @IBOutlet weak var tblView: UITableView!
+    let currUser = FirebaseHandler.shared.getCurrentUid()
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -24,13 +26,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        retrievePosts()
+        tblView.addSubview(self.refreshControl)
+    }
+    
+    func retrievePosts(){
+        SVProgressHUD.show()
         FirebaseHandler.shared.retrievePostDetails { (allPosts) in
             self.allPosts = allPosts
             DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
                 self.tblView.reloadData()
             }
         }
-        tblView.addSubview(self.refreshControl)
     }
 
     @IBAction func addPostBtn(_ sender: UIBarButtonItem) {
@@ -46,14 +54,61 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailTableViewCell") as? PostDetailTableViewCell
         let post = allPosts[indexPath.row]
+        cell?.tag = indexPath.row
         cell?.userPhotoImgView.image = post.postUserImage
         cell?.displayNameLabel.text = post.name
         cell?.postPhotoImgView.image = post.postImage
         cell?.likeImgView.image = post.isLike ? UIImage(named: "like") : UIImage(named: "unlike")
         cell?.timeLbl.text = dayDifference(from: post.timestamp)
-        cell?.likesLbl.text = "\(post.like) likes"
+        cell?.likesLbl.text = post.like == 1 ? "1 like" : "\(post.like ?? 0) likes"
+        cell?.likeBtn.postIdentifier = indexPath.row
+        cell?.likeBtn.addTarget(self, action: #selector(likeBtnPressed), for: .touchUpInside)
+        cell?.commentBtn.postIdentifier = indexPath.row
+        cell?.commentBtn.addTarget(self, action: #selector(addCommentBtnPressed), for: .touchUpInside)
+        cell?.shareBtn.postIdentifier = indexPath.row
+        cell?.shareBtn.addTarget(self, action: #selector(shareBtnPressed), for: .touchUpInside)
+        cell?.viewAllCommentsBtn.postIdentifier = indexPath.row
+        cell?.viewAllCommentsBtn.addTarget(self, action: #selector(viewAllCommentsBtnPressed), for: .touchUpInside)
         cell?.commentPreviewLbl.text = "\(post.commentby.first?.key) - \(post.commentby.first?.value)"
         return cell!
+    }
+    
+    @objc func likeBtnPressed(_ sender: IdentifiedButton){
+        print("hi")
+        let index = sender.postIdentifier ?? 0
+        let currPost = allPosts[index]
+        FirebaseHandler.shared.setPostLike(postId: currPost.imageRef,
+                                           uid: currUser,
+                                           currentlyLiked: currPost.isLike) { (err) in
+                                            if err == nil{
+                                                self.retrievePosts()
+//                                                if currPost.isLike == true{
+//                                                    if let removeMe = currPost.likeby.firstIndex(of: String(self.currUser)){
+//                                                        self.allPosts[index].likeby.remove(at: removeMe)
+//                                                        self.allPosts[index].like = (currPost.like ?? 1) - 1
+//                                                    }else{
+//                                                        self.allPosts[index].likeby.append(self.currUser)
+//                                                        self.allPosts[index].like = (currPost.like ?? 1) + 1
+//                                                    }
+//                                                    self.allPosts[index].isLike = !currPost.isLike
+//
+//                                                    tblView.viewWithTag(index)
+//                                                    image = post.isLike ? UIImage(named: "like") : UIImage(named: "unlike")
+//                                                }
+                                            }
+        }
+    }
+    
+    @objc func addCommentBtnPressed(_ sender: IdentifiedButton){
+        print(sender.postIdentifier)
+    }
+    
+    @objc func shareBtnPressed(_ sender: IdentifiedButton){
+        print(sender.postIdentifier)
+    }
+    
+    @objc func viewAllCommentsBtnPressed(_ sender: IdentifiedButton){
+        print(sender.postIdentifier)
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {

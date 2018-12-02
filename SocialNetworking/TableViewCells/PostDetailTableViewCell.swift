@@ -13,17 +13,17 @@ class PostDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var postPhotoImgView: UIImageView!
     @IBOutlet weak var likeImgView: UIImageView!
-    @IBOutlet weak var likeBtn: UIButton!
-    @IBOutlet weak var commentBtn: UIButton!
-    @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var likeBtn: IdentifiedButton!
+    @IBOutlet weak var commentBtn: IdentifiedButton!
+    @IBOutlet weak var shareBtn: IdentifiedButton!
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var likesLbl: UILabel!
     @IBOutlet weak var commentPreviewLbl: UILabel!
-    @IBOutlet weak var viewAllCommentsBtn: UIButton!
+    @IBOutlet weak var viewAllCommentsBtn: IdentifiedButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        userPhotoImgView = UIImageView().squareToCircle(imgView: userPhotoImgView)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
