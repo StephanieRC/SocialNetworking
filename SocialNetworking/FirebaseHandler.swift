@@ -28,7 +28,6 @@ class FirebaseHandler {
     static let shared = FirebaseHandler()
     
     private init(){
-        
     }
     
     func getCurrentUid() -> String {
@@ -219,7 +218,7 @@ class FirebaseHandler {
                                                 zipcode: dict["zipcode"] as? String ?? "",
                                                 lat: coor?["lat"] ?? "",
                                                 lon: coor?["lon"] ?? "",
-                                                postCount: postArr?.count ?? 100,
+                                                postCount: postArr?.count ?? 0,
                                                 img: nil)
                 completion(usermodel)
             }else{

@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var addressField: UITextField!
     @IBOutlet weak var cityField: UITextField!
+    @IBOutlet weak var postCountLbl: UILabel!
     
     let uid = FirebaseHandler.shared.getCurrentUid()
     let imgpicker = UIImagePickerController()
@@ -31,6 +32,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.emailField.text = userdata?.email
                 self.addressField.text = userdata?.address
                 self.cityField.text = userdata?.city
+                self.postCountLbl.text = String(userdata?.postCount ?? 0)
             }
         }
         FirebaseHandler.shared.downloadImg(){
