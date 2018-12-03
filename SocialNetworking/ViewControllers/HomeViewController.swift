@@ -60,8 +60,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell?.postPhotoImgView.image = post.postImage
         cell?.likeImgView.image = post.isLike ? UIImage(named: "like") : UIImage(named: "unlike")
         cell?.timeLbl.text = dayDifference(from: post.timestamp)
-        cell?.likesLbl.text = post.like == 1 ? "1 like" : "\(post.like ?? 0) likes"
+        cell?.likesBtn.titleLabel?.text = post.like == 1 ? "1 like" : "\(post.like ?? 0) likes"
         cell?.likeBtn.postIdentifier = indexPath.row
+        cell?.likeBtn.associatedIndexPath = indexPath
         cell?.likeBtn.addTarget(self, action: #selector(likeBtnPressed), for: .touchUpInside)
         cell?.commentBtn.postIdentifier = indexPath.row
         cell?.commentBtn.addTarget(self, action: #selector(addCommentBtnPressed), for: .touchUpInside)
@@ -74,14 +75,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func likeBtnPressed(_ sender: IdentifiedButton){
-        print("hi")
         let index = sender.postIdentifier ?? 0
         let currPost = allPosts[index]
+        allPosts[index].isLike = !(currPost.isLike)
+        if !(currPost.isLike) == false{
+            let removeMe = currPost.likeby.firstIndex(of: String(self.currUser))
+            allPosts[index].likeby.remove(at: removeMe!)
+            allPosts[index].like = (currPost.like ?? 1) - 1
+        }else{
+            allPosts[index].likeby.append(currUser)
+            allPosts[index].like = (currPost.like ?? 1) + 1
+        }
+        DispatchQueue.main.async {
+            self.tblView.reloadRows(at: [sender.associatedIndexPath!], with: .none)
+        }
         FirebaseHandler.shared.setPostLike(postId: currPost.imageRef,
                                            uid: currUser,
                                            currentlyLiked: currPost.isLike) { (err) in
                                             if err == nil{
-                                                self.retrievePosts()
+                                                //self.retrievePosts()
+//                                                if currPost.isLike == true{
+//                                                    sender.associatedImage?.image = UIImage(named: "unlike")
+//                                                }
 //                                                if currPost.isLike == true{
 //                                                    if let removeMe = currPost.likeby.firstIndex(of: String(self.currUser)){
 //                                                        self.allPosts[index].likeby.remove(at: removeMe)

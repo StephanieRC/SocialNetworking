@@ -17,7 +17,7 @@ class PostDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var commentBtn: IdentifiedButton!
     @IBOutlet weak var shareBtn: IdentifiedButton!
     @IBOutlet weak var timeLbl: UILabel!
-    @IBOutlet weak var likesLbl: UILabel!
+    @IBOutlet weak var likesBtn: IdentifiedButton!
     @IBOutlet weak var commentPreviewLbl: UILabel!
     @IBOutlet weak var viewAllCommentsBtn: IdentifiedButton!
     

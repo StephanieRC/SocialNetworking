@@ -70,4 +70,6 @@ extension UIImageView{
 
 class IdentifiedButton: UIButton {
     var postIdentifier: Int?
+    var associatedImage: UIImageView?
+    var associatedIndexPath: IndexPath?
 }
